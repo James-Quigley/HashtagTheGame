@@ -32,9 +32,31 @@ public class TheGameGooey{
     private class ButtonListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             EButton butt = (EButton)e.getSource();
-            if(theGame.getField(((EButton)e.getSource()).parentField).isFull()){}//update status bar and do something}
+            Field clickedField = theGame.getField(butt.parentField);
+            Tile clickedTile = theGame.getTile(butt.parentField,butt.content);
+            if (mode) {
+            	if(!clickedField.isFull()){
+            		subView((butt).parentField);
+            	}
+            	else {
+            		setStatus("Field Full. Do something derek!");
+            	}
+            }
+            else {
+            	if(clickedTile.getOwner() != 0) {
+            		clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
+            		//Check for win conditions here
+            		fullView();
+            		mode = true;
+            		theGame.changeActivePlayer();
+            	}
+            	else {
+            		setStatus("Tile already played on. Derek do something!");
+            	}
+            }
             
             /*
+            Derek's comments on what I should do ^
             If in fullview,
                 if this button's frame isn't full
                     move to subview of this button's frame
