@@ -5,22 +5,31 @@
 */
 public class Board{
 	
-	private Field fields[][] = new Field[3][3];	//Represents the fields of play
+	private Field[] fields;	//Represents the fields of play
 	private int fieldInPlay; //Reperesents the current field of play
 	private int p1Score; //Player one's score
 	private int p2Score; //Player two's score
 	private int winnableFields; //Number of winnable fields left
 	private boolean activePlayer; //Active player: false = player 1 | true = player 2
-	
+	private int turn;
+	public int getTurn(){return turn;}
+	public Field getField(int i){return fields[i];}
+	public Tile getTile(int i){return fields[i/9].getTile(i%9);}
+	public Tile getTile(int i, int j){return fields[i]
+	    .getTile(j);}
+	public int getLastTile(){return 0;}//returns index (0-80) of last tile
 	/**
 	* Default constructor for Board
 	*/
 	public Board(){
+	    turn = 0;
 		fieldInPlay = 0;
 		p1Score = 0;
 		p2Score = 0;
 		winnableFields = 9;
 		activePlayer = false;
+		fields = new Field[9];
+		for(int i = 0;i<9;i++)fields[i] = new Field();
 	}
 	
 	/**
