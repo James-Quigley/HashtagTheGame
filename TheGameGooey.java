@@ -26,11 +26,11 @@ public class TheGameGooey{
 			parentField = f;
 			content = t;
 		}
-		
+
 	}
 
 	private void changeTurn() {
-		theGame.changeActivePlayer();    	
+		theGame.changeActivePlayer();
 		if (theGame.getActivePlayer()) {
 			turnIndicator.setText("PLAYER 2");
 		}
@@ -57,14 +57,14 @@ public class TheGameGooey{
 				if(clickedTile.getOwner() != 0) {
 					clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
 					//Check for win conditions here
-					fullView();
+					suvView(butt.content);
 					changeTurn();
 				}
 				else {
 					setStatus("Tile already played on. Derek do something!");
 				}
 			}
-			
+
 			/*
 			Derek's comments on what I should do ^
 			If in fullview,
@@ -92,7 +92,7 @@ public class TheGameGooey{
 			buttons[i] = new EButton(i/9,i%9);
 			buttons[i].addActionListener(new ButtonListener());
 		}
-		
+
 	}
 	public void initFrame(){
 		initButtons();
@@ -102,7 +102,7 @@ public class TheGameGooey{
 		fullView();
 		statusBar = new JLabel("EMPTY");
 		turnIndicator = new JLabel("PLAYER 1");
-		
+
 		window.add(grid);
 		window.add(statusBar);
 		window.add(turnIndicator);
@@ -117,7 +117,7 @@ public class TheGameGooey{
 	public void fullView(){//sets grid to 9x9 view
 		mode = true;
 		grid = new JPanel(new GridLayout(9,9));
-		
+
 		for(int i = 0;i<3;i++)
 			for(int j = 0;j<3;j++)
 				for(int k = 0;k<3;k++)
@@ -135,7 +135,7 @@ public class TheGameGooey{
 		grid.setPreferredSize(new Dimension(GAME_DIM, GAME_DIM));
 
 	}
-	public void subView(int frame){
+	public void subView(int f){
 		mode = false;
 	}
 	private void recolor(){//recolors all buttons. will recolor for either view
@@ -147,7 +147,7 @@ public class TheGameGooey{
 			if(t == 2) e.setBackground(Color.BLUE);
 			if(theGame.getLastTile() == e.parentField*9+e.content && theGame.getTurn() > 1) e.setBackground(Color.RED);
 		}
-		
+
 	}
 	public void endView() {} //End
 	public TheGameGooey(){
@@ -157,7 +157,7 @@ public class TheGameGooey{
 	public static void main(String[] args){
 		TheGameGooey g = new TheGameGooey();
 
-		
-		
+
+
 	}
 }
