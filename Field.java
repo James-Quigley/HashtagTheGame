@@ -7,7 +7,7 @@ public class Field{
 	private Tile[] tiles; //Represents the 9 tic-tac-toe tiles
 	private int owner; //Who owns the field
 	private boolean full; //Represents the status of the field being full
-	public Tile getTile(int i){return tiles[i];}
+	
 	/**
 	* Default constructor for Field
 	*/
@@ -45,7 +45,17 @@ public class Field{
 	public boolean isFull(){
 		return full;
 	}
+	
+	/**
+	* Returns the tile at the given index
+	*/
+	public Tile getTile(int index){
+		return tiles[index];
+	}
 
+	/**
+	* Checks if field has been won
+	*/
 	public void checkIfWon(){
 		for (int i = 0; i < 7; i += 3){
 			for (int j = 0; j < 2; j++){
