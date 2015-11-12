@@ -120,6 +120,7 @@ public class TheGameGooey{
 		add turn indicator
 		*/
 		window.pack();
+		window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		window.setVisible(true);
 	}
 	public void fullView(){//sets grid to 9x9 view
