@@ -104,6 +104,7 @@ public class TheGameGooey{
 		initButtons();
 		window = new JFrame();
 		//window.setLayout(new BoxLayout(window,BoxLayout.Y_AXIS));
+
 		window.setLayout(new FlowLayout());
 		fullView();
 		statusBar = new JLabel("EMPTY");
@@ -118,6 +119,7 @@ public class TheGameGooey{
 		add status bar
 		add turn indicator
 		*/
+		window.pack();
 		window.setVisible(true);
 	}
 	public void fullView(){//sets grid to 9x9 view
