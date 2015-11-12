@@ -49,7 +49,7 @@ public class Field{
 	public void checkIfWon(){
 		for (int i = 0; i < 7; i += 3){
 			for (int j = 0; j < 2; j++){
-				if (Tiles[i].getOwner() == j && Tiles[i+1].getOwner() == j && Tiles[i+2].getOwner() == j){
+				if (tiles[i].getOwner() == j && tiles[i+1].getOwner() == j && tiles[i+2].getOwner() == j){
 					setOwner(j);
 					return;
 				}
@@ -57,20 +57,20 @@ public class Field{
 		}
 		for (int i = 0; i < 3; i++){
 			for (int j = 0; j < 2; j++){
-				if (Tiles[i].getOwner() == j && Tiles[i+3].getOwner() == j && Tiles[i+6].getOwner() == j){
+				if (tiles[i].getOwner() == j && tiles[i+3].getOwner() == j && tiles[i+6].getOwner() == j){
 					setOwner(j);
 					return;
 				}
 			}
 		}
 		for (int i = 0; i < 2; i++){
-			if (Tiles[0].getOwner() == i && Tiles[4].getOwner() == i && Tiles[8].getOwner() == i){
+			if (tiles[0].getOwner() == i && tiles[4].getOwner() == i && tiles[8].getOwner() == i){
 				setOwner(i);
 				return;
 			}
 		}
 		for (int i = 0; i < 2; i++){
-			else if (Tiles[2].getOwner() == i && Tiles[4].getOwner() == i && Tiles[6].getOwner() == i){
+			if (tiles[2].getOwner() == i && tiles[4].getOwner() == i && tiles[6].getOwner() == i){
 				setOwner(i);
 				return;
 			}
