@@ -56,8 +56,14 @@ public class TheGameGooey{
 			else {
 				if(clickedTile.getOwner() != 0) {
 					clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
-					//Check for win conditions here
-					suvView(butt.content);
+					clickedField.checkIfWon();
+                    if (!(theGame.getField(butt.content).isFull())) {
+					   subView(butt.content);
+                    }
+                    else {
+                        fullView();
+                        setStatus("That field is full");
+                    }
 					changeTurn();
 				}
 				else {
