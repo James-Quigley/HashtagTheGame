@@ -37,7 +37,9 @@ public class Field{
 	* Getter for full
 	*/
 	public boolean isFull(){
-		return full;
+		for(Tile t:tiles)
+		    if(t.getOwner() != 0) return false;
+		return true;
 	}
 	
 	/**
@@ -51,6 +53,7 @@ public class Field{
 	* Checks if field has been won
 	*/
 	public boolean checkIfWon(){
+	    if(owner != 0) return true;
 		for (int i = 0; i < 7; i += 3){
 			for (int j = 0; j < 2; j++){
 				if (tiles[i].getOwner() == j && tiles[i+1].getOwner() == j && tiles[i+2].getOwner() == j){
