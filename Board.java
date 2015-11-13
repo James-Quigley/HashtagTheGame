@@ -84,7 +84,7 @@ public class Board{
 	/**
 	* Returns whether or not the current turn is the first turn
 	*/
-	public int isFirstTurn(){
+	public boolean isFirstTurn(){
 		return firstTurn;
 	}
 	
