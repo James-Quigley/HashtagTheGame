@@ -32,12 +32,6 @@ public class Field{
 		return owner;
 	}
 
-	/**
-	* Setter for full
-	*/
-	public void setFull(boolean full){
-		this.full = full;
-	}
 	
 	/**
 	* Getter for full

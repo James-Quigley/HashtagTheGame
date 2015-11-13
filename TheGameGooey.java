@@ -55,18 +55,29 @@ public class TheGameGooey{
 				}
 			}
 			else { */
-                if(theGame.fieldInPlay() == 0) {
-                    clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
-                    if (clickedField.checkIfWon()) {
-                        theGame.checkIfWon();
+                if(theGame.getFieldInPlay() == -1) { //Freeplay field
+                    if(clickedTile.getOwner() == 0) { //Clicked Tile is free
+                        clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1); //Set owner
+                        if (clickedField.checkIfWon()) { //Check if field is won
+                            theGame.checkIfWon(); //Check if game is won if field was won
+                        }
+                        else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
+                            theGame.checkIfWon(); //Check if game is won if field was catsgamed
+                        }
+                        if (!(theGame.getField(butt.content).isFull())) {
+                            theGame.setFieldInPlay(butt.content);                            
+                        }
+                        else {
+                            setFieldInPlay(-1);
+                        }
                     }
-                    else if (clickedField.isFull() && clickedField.getOwner() == 0) {
-                        theGame.checkIfWon();
+                    else { //Clicked Tile is not free
+                        setStatus("Tile already played on. Derek do Something");
                     }
                 }
 				if(clickedTile.getOwner() == 0) {
-					clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
-					clickedField.checkIfWon();
+                    clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
+                    clickedField.checkIfWon();
                     if (!(theGame.getField(butt.content).isFull())) {
 					   subView(butt.content);
                     }
