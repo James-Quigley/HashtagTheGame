@@ -68,7 +68,7 @@ public class TheGameGooey{
                             theGame.setFieldInPlay(butt.content);                            
                         }
                         else {
-                            setFieldInPlay(-1);
+                            theGame.setFieldInPlay(-1);
                         }
                     }
                     else { //Clicked Tile is not free
@@ -174,7 +174,7 @@ public class TheGameGooey{
 			if(t == 0) e.setBackground(Color.WHITE);
 			if(t == 1) e.setBackground(Color.ORANGE);
 			if(t == 2) e.setBackground(Color.BLUE);
-			if(theGame.getLastTile() == e.parentField*9+e.content && theGame.getTurn() > 1) e.setBackground(Color.RED);
+			if(theGame.getLastTile() == e.parentField*9+e.content && !theGame.isFirstTurn()) e.setBackground(Color.RED);
 		}
 
 	}
