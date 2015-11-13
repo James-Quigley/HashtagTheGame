@@ -31,6 +31,7 @@ public class TheGameGooey{
 
 	private void changeTurn() {
 		theGame.changeActivePlayer();
+
 		if (theGame.getActivePlayer()) {
 			turnIndicator.setText("PLAYER 2");
 		}
@@ -45,7 +46,7 @@ public class TheGameGooey{
 			EButton butt = (EButton)e.getSource();
 			Field clickedField = theGame.getField(butt.parentField);
 			Tile clickedTile = theGame.getTile(butt.parentField,butt.content);
-			if (mode) {
+		/*	if (mode) {
 				if(!clickedField.isFull()){
 					subView((butt).parentField);
 				}
@@ -53,15 +54,23 @@ public class TheGameGooey{
 					setStatus("Field Full. Do something derek!");
 				}
 			}
-			else {
-				if(clickedTile.getOwner() != 0) {
+			else { */
+                if(theGame.fieldInPlay() == 0) {
+                    clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
+                    if (clickedField.checkIfWon()) {
+                        theGame.checkIfWon();
+                    }
+                    else if (clickedField.isFull() && clickedField.getOwner() == 0) {
+                        theGame.checkIfWon();
+                    }
+                }
+				if(clickedTile.getOwner() == 0) {
 					clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
 					clickedField.checkIfWon();
                     if (!(theGame.getField(butt.content).isFull())) {
 					   subView(butt.content);
                     }
                     else {
-                        fullView();
                         setStatus("That field is full");
                     }
 					changeTurn();
@@ -69,7 +78,7 @@ public class TheGameGooey{
 				else {
 					setStatus("Tile already played on. Derek do something!");
 				}
-			}
+			//}
 
 			/*
 			Derek's comments on what I should do ^
