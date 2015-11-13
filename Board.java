@@ -11,7 +11,7 @@ public class Board{
 	private int p2Score; //Player two's score
 	private int winnableFields; //Number of winnable fields left
 	private boolean activePlayer; //Active player: false = player 1 | true = player 2
-	private boolean firstTurn;
+	private boolean firstTurn; //Boolean representing if the turn is the first move or not
 	
 	/**
 	* Default constructor for Board
@@ -97,11 +97,12 @@ public class Board{
 	
 	/**
 	*
-	*/
+	*
 	public Tile getTile(int i){
 		return fields[i / 9].getTile(i % 9);
 	}
-	
+	*/
+		
 	/**
 	* Returns the tile at the give indices
 	*/
@@ -116,10 +117,16 @@ public class Board{
 		return 0;
 	}
 	
+	/**
+	* Setter for fieldInPlay
+	*/
 	public void setFieldInPlay(int fieldInPlay){
 		this.fieldInPlay = fieldInPlay;
 	}
 	
+	/**
+	* Getter for fieldInPlay
+	*/
 	public int getFieldInPlay(){
 		return fieldInPlay;
 	}
