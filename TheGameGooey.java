@@ -40,7 +40,9 @@ public class TheGameGooey{
 		}
 	}
 
-	private void setStatus(String s){}
+	private void setStatus(String s){
+        statusBar.setText(s);
+    }
 	private class ButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			EButton butt = (EButton)e.getSource();
@@ -58,37 +60,56 @@ public class TheGameGooey{
                 if(theGame.getFieldInPlay() == -1) { //Freeplay field
                     if(clickedTile.getOwner() == 0) { //Clicked Tile is free
                         clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1); //Set owner
+                        // System.out.println(butt.content); 
+                        // System.out.println(butt.parentField);
                         if (clickedField.checkIfWon()) { //Check if field is won
                             theGame.checkIfWon(); //Check if game is won if field was won
+                            System.out.println("Player " + (theGame.getActivePlayer()? 2 : 1) + " won a field.");
                         }
                         else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
                             theGame.checkIfWon(); //Check if game is won if field was catsgamed
                         }
-                        if (!(theGame.getField(butt.content).isFull())) {
+                        changeTurn();
+                        if (!(theGame.getField(butt.content).isFull())) { //Set the next field to play in to the previous player's tile
                             theGame.setFieldInPlay(butt.content);                            
                         }
-                        else {
+                        else { //The field the next player was sent is full
                             theGame.setFieldInPlay(-1);
                         }
                     }
                     else { //Clicked Tile is not free
-                        setStatus("Tile already played on. Derek do Something");
+                        System.out.println("Tile already played on. Derek do Something");
                     }
                 }
-				if(clickedTile.getOwner() == 0) {
-                    clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1);
-                    clickedField.checkIfWon();
-                    if (!(theGame.getField(butt.content).isFull())) {
-					   subView(butt.content);
+                else if(theGame.getFieldInPlay() == butt.parentField) { //Checks if the player clicked a button in the correct field
+                    if(clickedTile.getOwner() == 0) {
+                        clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1); //Set owner
+                        // System.out.println(butt.content); 
+                        // System.out.println(butt.parentField);
+
+                        if (clickedField.checkIfWon()) { //Check if field is won
+                            theGame.checkIfWon(); //Check if game is won if field was won
+                            System.out.println("Player " + (theGame.getActivePlayer()? 2 : 1) + " won a field.");
+                        }
+                        else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
+                            theGame.checkIfWon(); //Check if game is won if field was catsgamed
+                        }
+                        changeTurn();
+                        if (!(theGame.getField(butt.content).isFull())) { //Set the next field to play in to the previous player's tile
+                            theGame.setFieldInPlay(butt.content);                            
+                        }
+                        else { //The field the next player was sent is full
+                            theGame.setFieldInPlay(-1);
+                        }
                     }
-                    else {
-                        setStatus("That field is full");
+                    else { //Clicked Tile is not free
+                        System.out.println("Tile already played on. Derek do Something");
                     }
-					changeTurn();
-				}
+                }
 				else {
-					setStatus("Tile already played on. Derek do something!");
-				}
+                    System.out.println("You clicked the wrong field, punk.");
+                }
+                recolor();
 			//}
 
 			/*
