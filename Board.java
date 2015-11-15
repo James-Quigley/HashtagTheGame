@@ -29,6 +29,11 @@ public class Board{
 			fields[i] = new Field();
 		}
 	}
+
+	//Decrements winnableFields. (Use for catsGame)
+	public void decWinnableFields(){
+		winnableFields--;
+	}
 	
 	/**
 	* Increments pScore by one
