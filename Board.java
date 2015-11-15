@@ -31,11 +31,16 @@ public class Board{
 	}
 	
 	/**
-	* Increments p1Score by one
+	* Increments pScore by one
 	* Decrements winnableFields by one
 	*/
-	public void incP1Score(){
-		p1Score++;
+	public void incScore(int player){
+		if (player == 1){
+			p1Score++;
+		}
+		else{
+			p2Score++;
+		}
 		winnableFields--;
 	}
 	
@@ -44,15 +49,6 @@ public class Board{
 	*/
 	public int getP1Score(){
 		return p1Score;
-	}
-	
-	/**
-	* Increments p2Score
-	* Decrements winnableFields by one
-	*/
-	public void incP2Score(){
-		p2Score++;
-		winnableFields--;
 	}
 	
 	/**
@@ -95,9 +91,7 @@ public class Board{
 		return fields[i];
 	}
 	
-	/**
-	*
-	*
+	/*
 	public Tile getTile(int i){
 		return fields[i / 9].getTile(i % 9);
 	}
