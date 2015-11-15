@@ -151,10 +151,15 @@ public class Board{
 	* Resets all variables for a new game situation
 	*/
 	public void reset(){
-		fieldInPlay = 0;
+		activePlayer = false;
+		isFirstTurn = true;
+		fieldInPlay = -1;
 		p1Score = 0;
 		p2Score = 0;
 		winnableFields = 9;
 		activePlayer = false;
+		for (Field field: fields){
+			field.reset();
+		}
 	}
 }

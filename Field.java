@@ -89,4 +89,11 @@ public class Field{
 
 		return false;
 	}
+
+	public void reset(){
+		setOwner(0);
+		for (Tile tile: tiles){
+			tile.setOwner(0);
+		}
+	}
 }
