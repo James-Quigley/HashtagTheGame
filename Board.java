@@ -34,13 +34,13 @@ public class Board{
 	public void decWinnableFields(){
 		winnableFields--;
 	}
-	
+
 	/**
 	* Increments pScore by one
 	* Decrements winnableFields by one
 	*/
-	public void incScore(int player){
-		if (player == 1){
+	public void incScore(boolean player){
+		if (!player){
 			p1Score++;
 		}
 		else{
@@ -137,8 +137,10 @@ public class Board{
 		boolean won = false;
 		
 		if((p1Score > p2Score) && ((p2Score + winnableFields) < p1Score)){ //Player 1 wins
+			System.out.println("Player 1 Wins");
 			won = true;
 		}else if((p2Score > p1Score) && ((p1Score + winnableFields) < p2Score)){ //Player 2 wins
+			System.out.println("Player 2 Wins");
 			won = true;
 		}
 		
