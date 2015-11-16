@@ -10,18 +10,18 @@ public class Board{
 	private int p1Score; //Player one's score
 	private int p2Score; //Player two's score
 	private int winnableFields; //Number of winnable fields left
+	private int lastIndex; //Last tile played on
 	private boolean activePlayer; //Active player: false = player 1 | true = player 2
-	private boolean firstTurn; //Boolean representing if the turn is the first move or not
 	
 	/**
 	* Default constructor for Board
 	*/
 	public Board(){
-	    firstTurn = true;
 		fieldInPlay = -1;
 		p1Score = 0;
 		p2Score = 0;
 		winnableFields = 9;
+		lastIndex = -1;
 		activePlayer = false;
 		fields = new Field[9];
 		
@@ -82,12 +82,6 @@ public class Board{
 		return activePlayer;
 	}
 	
-	/**
-	* Returns whether or not the current turn is the first turn
-	*/
-	public boolean isFirstTurn(){
-		return firstTurn;
-	}
 	
 	/**
 	* Returns the field at the given index
@@ -108,14 +102,7 @@ public class Board{
 	public Tile getTile(int i, int j){
 		return fields[i].getTile(j);
 	}
-	
-	/**
-	* Returns index of the last tile (0 - 80)
-	*/	
-	public int getLastTile(){
-		return 0;
-	}
-	
+
 	/**
 	* Setter for fieldInPlay
 	*/
@@ -129,7 +116,14 @@ public class Board{
 	public int getFieldInPlay(){
 		return fieldInPlay;
 	}
+
+	public void setLastIndex(int i) {
+		lastIndex = i;
+	}
 	
+	public int getLastIndex() {
+		return lastIndex;
+	}
 	/**
 	* Returns whether or not the game has been one by some player
 	*/
@@ -152,11 +146,11 @@ public class Board{
 	*/
 	public void reset(){
 		activePlayer = false;
-		firstTurn = true;
 		fieldInPlay = -1;
 		p1Score = 0;
 		p2Score = 0;
 		winnableFields = 9;
+		lastIndex = -1;
 		activePlayer = false;
 		for (Field field: fields){
 			field.reset();
