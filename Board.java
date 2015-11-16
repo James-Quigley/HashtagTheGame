@@ -10,8 +10,7 @@ public class Board{
 	private int p1Score; //Player one's score
 	private int p2Score; //Player two's score
 	private int winnableFields; //Number of winnable fields left
-	private int lastField;
-	private int lastTile;
+	private int lastIndex; //Last tile played on
 	private boolean activePlayer; //Active player: false = player 1 | true = player 2
 	
 	/**
@@ -22,8 +21,7 @@ public class Board{
 		p1Score = 0;
 		p2Score = 0;
 		winnableFields = 9;
-		lastField  = -1;
-		lastTile = -1;
+		lastIndex = -1;
 		activePlayer = false;
 		fields = new Field[9];
 		
@@ -119,14 +117,13 @@ public class Board{
 		return fieldInPlay;
 	}
 
-	public void setLastField(int i) {
-		lastField = i;
-	}
-
-	public int getLastFIeld() {
-		return lastField;
+	public void setLastIndex(int i) {
+		lastIndex = i;
 	}
 	
+	public int getLastIndex() {
+		return lastIndex;
+	}
 	/**
 	* Returns whether or not the game has been one by some player
 	*/
@@ -153,8 +150,7 @@ public class Board{
 		p1Score = 0;
 		p2Score = 0;
 		winnableFields = 9;
-		lastField  = -1;
-		lastTile = -1;
+		lastIndex = -1;
 		activePlayer = false;
 		for (Field field: fields){
 			field.reset();
