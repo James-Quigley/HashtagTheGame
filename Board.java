@@ -12,11 +12,12 @@ public class Board{
 	private int winnableFields; //Number of winnable fields left
 	private boolean activePlayer; //Active player: false = player 1 | true = player 2
 	private boolean firstTurn; //Boolean representing if the turn is the first move or not
-	
+	private int lastTile;
 	/**
 	* Default constructor for Board
 	*/
 	public Board(){
+		lastTile = 0;
 	    firstTurn = true;
 		fieldInPlay = -1;
 		p1Score = 0;
@@ -68,6 +69,7 @@ public class Board{
 	* If player two is active player, switches to player 1
 	*/
 	public void changeActivePlayer(){
+		firstTurn = false;
 		if(activePlayer == false){
 			activePlayer = true;
 		}else{
@@ -108,12 +110,15 @@ public class Board{
 	public Tile getTile(int i, int j){
 		return fields[i].getTile(j);
 	}
-	
+	/**
+	* Sets the last tile played
+	*/
+	public void setLastTile(int i){lastTile = i;}
 	/**
 	* Returns index of the last tile (0 - 80)
 	*/	
 	public int getLastTile(){
-		return 0;
+		return lastTile;
 	}
 	
 	/**

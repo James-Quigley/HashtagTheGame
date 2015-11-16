@@ -6,7 +6,7 @@ public class TheGameGooey{
 	private Board theGame;
 	private JFrame window;
 	private JPanel gameGrid;
-    private JPanel frameGrid;
+    
 	private JLabel statusBar, turnIndicator;
 	private boolean mode; //true = full view, false = subView
 	private final int GAME_DIM = 600;
@@ -33,10 +33,11 @@ public class TheGameGooey{
 		theGame.changeActivePlayer();
 
 		if (theGame.getActivePlayer()) {
-			turnIndicator.setText("PLAYER 2");
+			turnIndicator.setBackground(new Color(109,208,247));
+			//turnIndicator.setText("PLAYER 2");
 		}
 		else {
-			turnIndicator.setText("PLAYER 1");
+			turnIndicator.setBackground(new Color(246,152,157));
 		}
 	}
 
@@ -60,6 +61,7 @@ public class TheGameGooey{
                 if(theGame.getFieldInPlay() == -1) { //Freeplay field
                     if(clickedTile.getOwner() == 0) { //Clicked Tile is free
                         clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1); //Set owner
+                        theGame.setLastTile(butt.parentField*9+butt.content);
                         // System.out.println(butt.content); 
                         // System.out.println(butt.parentField);
                         if (clickedField.checkIfWon()) { //Check if field is won
@@ -69,7 +71,7 @@ public class TheGameGooey{
                             	recolor();
                             	return;						 //Check if game is won if field was won
                             } 
-                            System.out.println("Player " + (theGame.getActivePlayer()? 2 : 1) + " won a field.");
+                            statusBar.setText("Player " + (theGame.getActivePlayer()? 2 : 1) + " won a field.");
                         }
                         else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
                       	    theGame.decWinnableFields(); //Decreases winnable fields due to cats game
@@ -88,12 +90,13 @@ public class TheGameGooey{
                         }
                     }
                     else { //Clicked Tile is not free
-                        System.out.println("Tile already played on. Derek do Something");
+                        statusBar.setText("Tile already played on.");
                     }
                 }
                 else if(theGame.getFieldInPlay() == butt.parentField) { //Checks if the player clicked a button in the correct field
                     if(clickedTile.getOwner() == 0) {
                         clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1); //Set owner
+                        theGame.setLastTile(butt.parentField*9+butt.content);
                         // System.out.println(butt.content); 
                         // System.out.println(butt.parentField);
 
@@ -104,7 +107,7 @@ public class TheGameGooey{
                             	recolor();
                             	return;						 //Check if game is won if field was won
                             } 
-                            System.out.println("Player " + (theGame.getActivePlayer()? 2 : 1) + " won a field.");
+                            statusBar.setText("Player " + (theGame.getActivePlayer()? 2 : 1) + " won a field.");
                         }
                         else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
                       	    theGame.decWinnableFields(); //Decreases winnable fields due to cats game
@@ -123,11 +126,11 @@ public class TheGameGooey{
                         }
                     }
                     else { //Clicked Tile is not free
-                        System.out.println("Tile already played on. Derek do Something");
+                        statusBar.setText("Stop being so edgy and pick an open tile");
                     }
                 }
 				else {
-                    System.out.println("You clicked the wrong field, punk.");
+                    statusBar.setText("You clicked the wrong field, punk.");
                 }
                 recolor();
 			//}
@@ -164,12 +167,13 @@ public class TheGameGooey{
 	public void initFrame(){
 		initButtons();
 		window = new JFrame();
-		//window.setLayout(new BoxLayout(window,BoxLayout.Y_AXIS));
-
-		window.setLayout(new FlowLayout());
+		
+		//window.setLayout(BoxLayout.createVerticalBox());
+		//window.setLayout(new FlowLayout());
 		fullView();
-		statusBar = new JLabel("EMPTY");
-		turnIndicator = new JLabel("PLAYER 1");
+		statusBar = new JLabel("           ");
+		turnIndicator = new JLabel("                                   ");
+		turnIndicator.setOpaque(true);
 
 		window.add(gameGrid);
 		window.add(statusBar);
@@ -180,11 +184,13 @@ public class TheGameGooey{
 		add status bar
 		add turn indicator
 		*/
+		window.setLayout(new BoxLayout(window.getContentPane(),BoxLayout.Y_AXIS));
 		window.pack();
 		window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		window.setVisible(true);
 	}
 	public void fullView(){//sets grid to 9x9 view
+		JPanel frameGrid;
 		mode = true;
         gameGrid = new JPanel(new GridLayout(3,3,10,10));
         for(int i = 0; i < 9; i++) {
@@ -225,7 +231,22 @@ public class TheGameGooey{
 			if(t == 0) e.setBackground(new Color(137,137,137));
 			if(t == 1) e.setBackground(new Color(246,152,157));
 			if(t == 2) e.setBackground(new Color(109,208,247));
-			if(theGame.getLastTile() == e.parentField*9+e.content && !theGame.isFirstTurn()) e.setBackground(Color.RED);
+			if(theGame.getLastTile() == e.parentField*9+e.content && !theGame.isFirstTurn()){
+				Color c = e.getBackground();
+				e.setBackground(new Color(c.getRed()-50,c.getGreen()-50,c.getBlue()-50));
+			}
+		}
+		Color active = theGame.getActivePlayer()? new Color(109,208,247):new Color(246,152,157);
+		
+		gameGrid.setBackground(new Color(255,255,255));
+		for(Component c : gameGrid.getComponents())
+			c.setBackground(new Color(255,255,255));
+		if(theGame.getFieldInPlay() != -1)
+			gameGrid.getComponent(theGame.getFieldInPlay()).setBackground(active);
+		else if(theGame.getFieldInPlay() == -1){
+			for(Component c: gameGrid.getComponents())
+				c.setBackground(active);
+			gameGrid.setBackground(active);
 		}
 
 	}
