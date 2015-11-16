@@ -11,15 +11,7 @@ public class TheGameGooey{
 	private boolean mode; //true = full view, false = subView
 	private final int GAME_DIM = 600;
 	private class EButton extends JButton{
-		/*
-		private Frame parentFrame;
-		private Tile content;
-		public EButton(Frame f, Tile t){
-			super();
-			parentFrame = f;
-			content = t;
-		}
-		*/
+
 		private int parentField; //index of parent field in game (0-8)
 		private int content; //index of tile in its parent frame (0-8)
 		public EButton(int f, int t){
@@ -49,21 +41,12 @@ public class TheGameGooey{
 			EButton butt = (EButton)e.getSource();
 			Field clickedField = theGame.getField(butt.parentField);
 			Tile clickedTile = theGame.getTile(butt.parentField,butt.content);
-		/*	if (mode) {
-				if(!clickedField.isFull()){
-					subView((butt).parentField);
-				}
-				else {
-					setStatus("Field Full. Do something derek!");
-				}
-			}
-			else { */
+
                 if(theGame.getFieldInPlay() == -1) { //Freeplay field
                     if(clickedTile.getOwner() == 0) { //Clicked Tile is free
                         clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1); //Set owner
                         theGame.setLastTile(butt.parentField*9+butt.content);
-                        // System.out.println(butt.content); 
-                        // System.out.println(butt.parentField);
+
                         if (clickedField.checkIfWon()) { //Check if field is won
                             theGame.incScore(theGame.getActivePlayer()); //Increases the score of the player who won
                             if(theGame.checkIfWon()){
@@ -97,8 +80,6 @@ public class TheGameGooey{
                     if(clickedTile.getOwner() == 0) {
                         clickedTile.setOwner(theGame.getActivePlayer()? 2 : 1); //Set owner
                         theGame.setLastTile(butt.parentField*9+butt.content);
-                        // System.out.println(butt.content); 
-                        // System.out.println(butt.parentField);
 
                         if (clickedField.checkIfWon()) { //Check if field is won
                             theGame.incScore(theGame.getActivePlayer()); //Increases the score of the player who won
@@ -133,27 +114,7 @@ public class TheGameGooey{
                     statusBar.setText("You clicked the wrong field, punk.");
                 }
                 recolor();
-			//}
 
-			/*
-			Derek's comments on what I should do ^
-			If in fullview,
-				if this button's frame isn't full
-					move to subview of this button's frame
-				else
-					add something in status bar, handle accordingly
-			If in subView,
-				if this button's tile isn't taken
-					take the tile for player
-					check to see if any end conditions
-					go into fullView
-					change mode
-					edit turn indicator
-					change the button's color
-					etc
-				else
-					indicate in status bar that a different move must be made
-			*/
 		}
 	}
 	public void initButtons(){
@@ -167,9 +128,6 @@ public class TheGameGooey{
 	public void initFrame(){
 		initButtons();
 		window = new JFrame();
-		
-		//window.setLayout(BoxLayout.createVerticalBox());
-		//window.setLayout(new FlowLayout());
 		fullView();
 		statusBar = new JLabel("           ");
 		turnIndicator = new JLabel("                                   ");
@@ -200,23 +158,6 @@ public class TheGameGooey{
             }
             gameGrid.add(frameGrid);
         }
-        /*
-		grid = new JPanel(new GridLayout(9,9,10,10));
-		for(int i = 0;i<3;i++)
-			for(int j = 0;j<3;j++)
-				for(int k = 0;k<3;k++)
-					grid.add(buttons[(i*3)+(j*9)+k]);
-		for(int i = 9;i<12;i++)
-			for(int j = 0;j<3;j++)
-				for(int k = 0;k<3;k++)
-					grid.add(buttons[(i*3)+(j*9)+k]);
-		for(int i = 18;i<21;i++)
-			for(int j = 0;j<3;j++)
-				for(int k = 0;k<3;k++)
-					grid.add(buttons[(i*3)+(j*9)+k]);
-		//for(int i = 0;i<81;i++) grid.add(buttons[i]);
-        */
-
 		recolor();
 		gameGrid.setPreferredSize(new Dimension(GAME_DIM, GAME_DIM));
 
