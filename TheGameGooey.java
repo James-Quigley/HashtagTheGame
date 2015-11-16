@@ -65,14 +65,18 @@ public class TheGameGooey{
                         if (clickedField.checkIfWon()) { //Check if field is won
                             theGame.incScore(theGame.getActivePlayer()); //Increases the score of the player who won
                             if(theGame.checkIfWon()){
-                            	theGame.reset();						 //Check if game is won if field was won
+                            	theGame.reset();
+                            	recolor();
+                            	return;						 //Check if game is won if field was won
                             } 
                             System.out.println("Player " + (theGame.getActivePlayer()? 2 : 1) + " won a field.");
                         }
                         else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
                       	    theGame.decWinnableFields(); //Decreases winnable fields due to cats game
                             if(theGame.checkIfWon()){
-                            	theGame.reset();						 //Check if game is won if field was catsgamed
+                            	theGame.reset();
+                            	recolor();
+                            	return;						 //Check if game is won if field was catsgamed
                             } 
                         }
                         changeTurn();
@@ -96,14 +100,18 @@ public class TheGameGooey{
                         if (clickedField.checkIfWon()) { //Check if field is won
                             theGame.incScore(theGame.getActivePlayer()); //Increases the score of the player who won
                             if(theGame.checkIfWon()){
-                            	theGame.reset();						 //Check if game is won if field was won
+                            	theGame.reset();
+                            	recolor();
+                            	return;						 //Check if game is won if field was won
                             } 
                             System.out.println("Player " + (theGame.getActivePlayer()? 2 : 1) + " won a field.");
                         }
                         else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
                       	    theGame.decWinnableFields(); //Decreases winnable fields due to cats game
                             if(theGame.checkIfWon()){
-                            	theGame.reset();						 //Check if game is won if field was catsgamed
+                            	theGame.reset();
+                            	recolor();
+                            	return;					 //Check if game is won if field was catsgamed
                             }
                         }
                         changeTurn();
