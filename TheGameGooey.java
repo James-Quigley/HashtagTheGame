@@ -5,7 +5,8 @@ public class TheGameGooey{
 	private EButton[] buttons;
 	private Board theGame;
 	private JFrame window;
-	private JPanel grid;
+	private JPanel gameGrid;
+    private JPanel frameGrid;
 	private JLabel statusBar, turnIndicator;
 	private boolean mode; //true = full view, false = subView
 	private final int GAME_DIM = 600;
@@ -22,7 +23,6 @@ public class TheGameGooey{
 		private int parentField; //index of parent field in game (0-8)
 		private int content; //index of tile in its parent frame (0-8)
 		public EButton(int f, int t){
-			super(f*9 + t+ "");
 			parentField = f;
 			content = t;
 		}
@@ -171,7 +171,7 @@ public class TheGameGooey{
 		statusBar = new JLabel("EMPTY");
 		turnIndicator = new JLabel("PLAYER 1");
 
-		window.add(grid);
+		window.add(gameGrid);
 		window.add(statusBar);
 		window.add(turnIndicator);
 		/*
@@ -186,8 +186,16 @@ public class TheGameGooey{
 	}
 	public void fullView(){//sets grid to 9x9 view
 		mode = true;
-		grid = new JPanel(new GridLayout(9,9));
-
+        gameGrid = new JPanel(new GridLayout(3,3,10,10));
+        for(int i = 0; i < 9; i++) {
+            frameGrid = new JPanel(new GridLayout(3,3,5,5));
+            for(int j = 0; j < 9; j++) {
+                frameGrid.add(buttons[i*9+j]);
+            }
+            gameGrid.add(frameGrid);
+        }
+        /*
+		grid = new JPanel(new GridLayout(9,9,10,10));
 		for(int i = 0;i<3;i++)
 			for(int j = 0;j<3;j++)
 				for(int k = 0;k<3;k++)
@@ -201,8 +209,10 @@ public class TheGameGooey{
 				for(int k = 0;k<3;k++)
 					grid.add(buttons[(i*3)+(j*9)+k]);
 		//for(int i = 0;i<81;i++) grid.add(buttons[i]);
+        */
+
 		recolor();
-		grid.setPreferredSize(new Dimension(GAME_DIM, GAME_DIM));
+		gameGrid.setPreferredSize(new Dimension(GAME_DIM, GAME_DIM));
 
 	}
 	public void subView(int f){
@@ -212,9 +222,9 @@ public class TheGameGooey{
 		for(EButton e: buttons){
 			int t = theGame.getField(e.parentField).getTile(e.content).getOwner();
 			e.setOpaque(true);
-			if(t == 0) e.setBackground(Color.WHITE);
-			if(t == 1) e.setBackground(Color.ORANGE);
-			if(t == 2) e.setBackground(Color.BLUE);
+			if(t == 0) e.setBackground(new Color(137,137,137));
+			if(t == 1) e.setBackground(new Color(246,152,157));
+			if(t == 2) e.setBackground(new Color(109,208,247));
 			if(theGame.getLastTile() == e.parentField*9+e.content && !theGame.isFirstTurn()) e.setBackground(Color.RED);
 		}
 
