@@ -10,6 +10,7 @@ public class TheGameGooey{
 	private JLabel statusBar, turnIndicator; //Text indicators
 	private boolean mode; //true = full view, false = subView
 	private final int GAME_DIM = 600; //Game dimensions
+	private boolean gameWon;
 
 	//Buttons that hold information on which field and tile it is. 
 	private class EButton extends JButton{
@@ -50,7 +51,13 @@ public class TheGameGooey{
 			Tile clickedTile = theGame.getTile(butt.parentField,butt.content); //Gets the tile in question
 
 			setStatus("Please play in the green field"); //Resets the Status text
-
+			if(gameWon) {
+				theGame.reset();
+				gameWon = false;
+				setStatus("Welcome to #TheGame");
+				recolor();
+				return;
+			}
 			//If players could have chosen any field. 
 			if(theGame.getFieldInPlay() == -1) {
 				if(clickedTile.getOwner() == 0) { //The tile is free
@@ -58,7 +65,8 @@ public class TheGameGooey{
 					if (clickedField.checkIfWon()) { //Check if field is won
 						theGame.incScore(theGame.getActivePlayer()); //Increases the score of the player who won
 						if(theGame.checkIfWon()){ //Check if game is won if field is won
-							theGame.reset();
+							setStatus("Player " + (theGame.getActivePlayer()? 2 : 1) + " won! Press any button to play again");
+							gameWon = true;
 							recolor();
 							return;	
 						} 
@@ -67,7 +75,8 @@ public class TheGameGooey{
 					else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
 						theGame.decWinnableFields(); //Decreases winnable fields due to cats game
 						if(theGame.checkIfWon()){ //Check if game is won if field is won
-							theGame.reset();
+							setStatus("Player " + (theGame.getActivePlayer()? 2 : 1) + " won! Press any button to play again");
+							gameWon = true;
 							recolor();
 							return;
 						} 
@@ -78,6 +87,7 @@ public class TheGameGooey{
 						theGame.setFieldInPlay(butt.content);                            
 					}
 					else { //The field the next player was sent is full
+						setStatus("You can play anywhere, Player " + (theGame.getActivePlayer()? 2 : 1));
 						theGame.setFieldInPlay(-1);
 					}
 				}
@@ -93,7 +103,8 @@ public class TheGameGooey{
 					if (clickedField.checkIfWon()) { //Check if field is won
 						theGame.incScore(theGame.getActivePlayer()); //Increases the score of the player who won
 						if(theGame.checkIfWon()){ //Check if game is won if field is won
-							theGame.reset();
+							setStatus("Player " + (theGame.getActivePlayer()? 2 : 1) + " won! Press any button to play again");
+							gameWon = true;
 							recolor();
 							return;	
 						} 
@@ -102,7 +113,8 @@ public class TheGameGooey{
 					else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
 						theGame.decWinnableFields(); //Decreases winnable fields due to cats game
 						if(theGame.checkIfWon()){ //Check if game is won if field is won
-							theGame.reset();
+							setStatus("Player " + (theGame.getActivePlayer()? 2 : 1) + " won! Press any button to play again");
+							gameWon = true;
 							recolor();
 							return;
 						} 
@@ -114,6 +126,7 @@ public class TheGameGooey{
 						theGame.setFieldInPlay(butt.content);                            
 					}
 					else { //The field the next player was sent is full
+						setStatus("You can play anywhere, Player " + (theGame.getActivePlayer()? 2 : 1));
 						theGame.setFieldInPlay(-1);
 					}
 				}
@@ -144,7 +157,7 @@ public class TheGameGooey{
 
 		window.setLayout(new FlowLayout());
 		fullView();
-		statusBar = new JLabel("");
+		statusBar = new JLabel("Welcome to #TheGame");
 		turnIndicator = new JLabel("PLAYER 1");
 
 		window.add(statusBar);
@@ -185,7 +198,7 @@ public class TheGameGooey{
 			//Color taken spaces
 			if(t == 1) e.setBackground(base.player1);
 			if(t == 2) e.setBackground(base.player2);
-
+			//Color last played
 			if(e.index() == theGame.getLastIndex()) {
 				e.setBackground(theGame.getActivePlayer()? base.player1new : base.player2new);
 			}
@@ -195,6 +208,7 @@ public class TheGameGooey{
 	public void endView() {} //End
 	public TheGameGooey(){
 		theGame = new Board();
+		gameWon = false;
 		initFrame();
 	}
 	public static void main(String[] args){
