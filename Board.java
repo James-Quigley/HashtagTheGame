@@ -152,7 +152,7 @@ public class Board{
 	*/
 	public void reset(){
 		activePlayer = false;
-		isFirstTurn = true;
+		firstTurn = true;
 		fieldInPlay = -1;
 		p1Score = 0;
 		p2Score = 0;
