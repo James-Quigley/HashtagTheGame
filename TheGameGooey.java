@@ -153,9 +153,7 @@ public class TheGameGooey{
 	public void initFrame(){
 		initButtons();
 		window = new JFrame();
-		//window.setLayout(new BoxLayout(window,BoxLayout.Y_AXIS));
 
-		window.setLayout(new FlowLayout());
 		fullView();
 		statusBar = new JLabel("Welcome to #TheGame");
 		turnIndicator = new JLabel("PLAYER 1");
@@ -163,6 +161,8 @@ public class TheGameGooey{
 		window.add(statusBar);
 		window.add(gameGrid);
 		window.add(turnIndicator);
+
+		window.setLayout(new BoxLayout(window.getContentPane(),BoxLayout.Y_AXIS));
 		window.pack();
 		window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		window.setVisible(true);
