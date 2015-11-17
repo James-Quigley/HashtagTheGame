@@ -131,7 +131,7 @@ public class TheGameGooey{
 				}
 			}
 			else {
-				setStatus("That's not the right field, Player " + (theGame.getActivePlayer()? base.player2name : base.player1name));
+				setStatus("That's not the right field, " + (theGame.getActivePlayer()? base.player2name : base.player1name));
 			}
 			recolor();
 		}
