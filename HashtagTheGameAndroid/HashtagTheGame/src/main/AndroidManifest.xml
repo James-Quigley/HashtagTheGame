@@ -9,8 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:label="Main activity"
-            android:name=".GameActivity" >
+            android:name=".GameActivity"
+            android:label="Main activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainMenu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

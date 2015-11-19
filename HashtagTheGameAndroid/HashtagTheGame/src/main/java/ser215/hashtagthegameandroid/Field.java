@@ -1,7 +1,9 @@
+package ser215.hashtagthegameandroid;
+
 /**
- * Class: Field
+ * Class: ser215.hashtagthegameandroid.Field
  *
- * Represents the nine playing fields within the Board.java class
+ * Represents the nine playing fields within the ser215.hashtagthegameandroid.Board.java class
  */
 public class Field{
     private Tile[] tiles; //Represents the 9 tic-tac-toe tiles
@@ -9,7 +11,7 @@ public class Field{
     private boolean full; //Represents the status of the field being full
 
     /**
-     * Default constructor for Field
+     * Default constructor for ser215.hashtagthegameandroid.Field
      */
     public Field(){
         tiles = new Tile[9];

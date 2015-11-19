@@ -1,7 +1,9 @@
+package ser215.hashtagthegameandroid;
+
 /**
- * Class: Tile
+ * Class: ser215.hashtagthegameandroid.Tile
  *
- * Represents the nine tiles within each Field.java class
+ * Represents the nine tiles within each ser215.hashtagthegameandroid.Field.java class
  */
 public class Tile{
 

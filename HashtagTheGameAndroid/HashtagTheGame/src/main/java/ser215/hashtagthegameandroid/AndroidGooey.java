@@ -1,3 +1,5 @@
+package ser215.hashtagthegameandroid;
+
 public class AndroidGooey{
     private EButton[] buttons;
     private Board theGame;

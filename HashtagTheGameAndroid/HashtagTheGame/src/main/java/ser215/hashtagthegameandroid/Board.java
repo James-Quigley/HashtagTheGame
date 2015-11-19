@@ -1,5 +1,7 @@
+package ser215.hashtagthegameandroid;
+
 /**
- * Class: Board
+ * Class: ser215.hashtagthegameandroid.Board
  *
  * Represents the game board of #TheGame
  */
@@ -14,7 +16,7 @@ public class Board{
     private int activePlayer; //Active player: 1 = player 1 | 2 = player 2
 
     /**
-     * Default constructor for Board
+     * Default constructor for ser215.hashtagthegameandroid.Board
      */
     public Board(){
         fieldInPlay = -1;
@@ -114,7 +116,7 @@ public class Board{
     }
 	
 	/*
-	public Tile getTile(int i){
+	public ser215.hashtagthegameandroid.Tile getTile(int i){
 		return fields[i / 9].getTile(i % 9);
 	}
 	*/
