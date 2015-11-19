@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HashtagTheGame/HashtagTheGame.iml" filepath="$PROJECT_DIR$/HashtagTheGame/HashtagTheGame.iml" />
-      <module fileurl="file://$PROJECT_DIR$/HashtagTheGameAndriod.iml" filepath="$PROJECT_DIR$/HashtagTheGameAndriod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HashtagTheGameAndroid.iml" filepath="$PROJECT_DIR$/HashtagTheGameAndroid.iml" />
     </modules>
   </component>
 </project>
