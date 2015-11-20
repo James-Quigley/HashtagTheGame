@@ -46,7 +46,14 @@ public class TheGameGooey{
 			EButton butt = (EButton)e.getSource(); //Loads the button information with data values
 			Field clickedField = theGame.getField(butt.parentField); //Gets the field in question
 			Tile clickedTile = theGame.getTile(butt.parentField,butt.content); //Gets the tile in question
-
+			
+			
+			/** THIS IS FOR JOSH PLEASE KEEP COMMENTED OUT
+			if (butt.index() == 0) {
+				gameOver();
+			}
+			*/
+			
 			setStatus("Please play in the green field, " + (theGame.getActivePlayer()? base.player2name : base.player1name)); //Set owner); //Resets the Status text
 			if(gameWon) {
 				theGame.reset();
@@ -62,9 +69,7 @@ public class TheGameGooey{
 					if (clickedField.checkIfWon()) { //Check if field is won
 						theGame.incScore(theGame.getActivePlayer()); //Increases the score of the player who won
 						if(theGame.checkIfWon()){ //Check if game is won if field is won
-							setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Press any button to play again");
-							gameWon = true;
-							recolor();
+							gameOver();
 							return;	
 						} 
 						setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won a field.");
@@ -72,9 +77,7 @@ public class TheGameGooey{
 					else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
 						theGame.decWinnableFields(); //Decreases winnable fields due to cats game
 						if(theGame.checkIfWon()){ //Check if game is won if field is won
-							setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Press any button to play again");
-							gameWon = true;
-							recolor();
+							gameOver();
 							return;
 						} 
 					}
@@ -100,9 +103,7 @@ public class TheGameGooey{
 					if (clickedField.checkIfWon()) { //Check if field is won
 						theGame.incScore(theGame.getActivePlayer()); //Increases the score of the player who won
 						if(theGame.checkIfWon()){ //Check if game is won if field is won
-							setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Press any button to play again");
-							gameWon = true;
-							recolor();
+							gameOver();
 							return;	
 						} 
 						setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won a field.");
@@ -110,9 +111,7 @@ public class TheGameGooey{
 					else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
 						theGame.decWinnableFields(); //Decreases winnable fields due to cats game
 						if(theGame.checkIfWon()){ //Check if game is won if field is won
-							setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Press any button to play again");
-							gameWon = true;
-							recolor();
+							gameOver();
 							return;
 						} 
 					}
@@ -137,6 +136,13 @@ public class TheGameGooey{
 		}
 	}
 
+	public void gameOver(){
+		setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Press any button to play again");
+		gameWon = true;
+		recolor();
+		
+	}
+	
 	//Sets up all the Buttons assuming aa 9x9 grid
 	public void initButtons(){
 		buttons = new EButton[81];
