@@ -8,7 +8,7 @@ public class AndroidGooey{
     //private JLabel statusBar, turnIndicator;
     private final int GAME_DIM = 600;
     private class EButton{
-        private int parentField; //index of parent field in game (0-8)
+        private int parentField; //index of parent field in fullviewlayout (0-8)
         private int content; //index of tile in its parent frame (0-8)
         public EButton(int f, int t){
             parentField = f;
@@ -36,16 +36,13 @@ public class AndroidGooey{
             } else {//already in a subview
                 int move = theGame.makePlayAt(butt.parentField, butt.content);
 
-                if (move == 0) {
-                    //alert user that the tile isn't available
+                if (move == 0) {//invalid move
                 }
-                if (move == 1) {
-                    subView(theGame.getFieldInPlay());
+                if (move == 1) {//valid move made, new field in play
                 }
-                if (move == 2) {
-                    fullView();
+                if (move == 2) {//valid move, choose field in play
                 }
-                if (move == 3) {
+                if (move == 3) {//game over
                     endView();
                 }
             }
@@ -119,7 +116,7 @@ public class AndroidGooey{
         }
 
     }
-    public void endView() {} //End
+    public void endView() {} //end of game
     public AndroidGooey(){
         theGame = new Board();
         initFrame();

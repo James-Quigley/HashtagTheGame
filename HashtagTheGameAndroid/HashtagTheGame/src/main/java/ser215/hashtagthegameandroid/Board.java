@@ -3,7 +3,7 @@ package ser215.hashtagthegameandroid;
 /**
  * Class: ser215.hashtagthegameandroid.Board
  *
- * Represents the game board of #TheGame
+ * Represents the fullviewlayout board of #TheGame
  */
 public class Board{
 
@@ -34,12 +34,12 @@ public class Board{
     //returns 0 if the play couldn't be made, 1 if the play was made and the field has transitioned to a new fieldinplay. returns 2 if the fieldinplay has transitioned to -1. returns 3 if game is won
     public int makePlayAt(int field, int tile){
 
-        if(field != fieldInPlay || fields[field].getTile(tile).getOwner() != 0){//play not open
+        if((field != fieldInPlay && fieldInPlay != -1) || fields[field].getTile(tile).getOwner() != 0){//play not open
             return 0;
         }
-        fields[field].getTile(tile).setOwner(getActivePlayer());
+        fields[field].getTile(tile).setOwner(getActivePlayer());//valid move
         if(fields[field].checkIfWon()){//if this play wins a field
-            incScore(getActivePlayer());
+            incScore(getActivePlayer());//decreases winnable fields, calculates score
         }
         if(fields[field].isFull() && fields[field].getOwner() == 0){//catsgame
             decWinnableFields();
@@ -49,7 +49,7 @@ public class Board{
 
         lastIndex = field*9 + tile;
         changeActivePlayer();//change player
-        if(fields[tile].getOwner() != 0){//can't transition to a new field in play
+        if(fields[tile].isFull()){//can't transition to a new field in play
             fieldInPlay = -1;
             return 2;
         }
@@ -150,7 +150,7 @@ public class Board{
         return lastIndex;
     }
     /**
-     * Returns whether or not the game has been one by some player
+     * Returns whether or not the fullviewlayout has been one by some player
      */
     public boolean checkIfWon(){
         boolean won = false;
@@ -167,7 +167,7 @@ public class Board{
     }
 
     /**
-     * Resets all variables for a new game situation
+     * Resets all variables for a new fullviewlayout situation
      */
     public void reset(){
         fieldInPlay = -1;
