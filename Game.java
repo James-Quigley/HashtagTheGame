@@ -161,7 +161,13 @@ public class Game{
 		scoreIndicator = new JLabel(base.player1name + ": " + theGame.getP1Score() + 
 			"       " + base.player2name + ": " + theGame.getP2Score() +
 			"       Fields left in play: " + theGame.getWinnableFields());
+			
+		scoreIndicator.setAlignmentX(Component.CENTER_ALIGNMENT);
+		statusBar.setAlignmentX(Component.CENTER_ALIGNMENT);
+		scoreIndicator.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		statusBar.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
+		gameGrid.setAlignmentX(Component.CENTER_ALIGNMENT);
 		window.add(statusBar);
 		window.add(gameGrid);
 		window.add(scoreIndicator);
