@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
-public class TheGameGooey{
+public class Game{
 	private EButton[] buttons; //Array of all 81 buttons
 	private Board theGame; //Instance of board for game
 	private JFrame window; 
@@ -212,14 +212,14 @@ public class TheGameGooey{
 		}
 	}
 	public void endView() {} //End
-	public TheGameGooey(){
+	public Game(){
 		theGame = new Board();
 		gameWon = false;
 		base = new Scheme();
 		initFrame();
 	}
 	public static void main(String[] args){
-		TheGameGooey g = new TheGameGooey();
+		Game g = new Game();
 
 
 
