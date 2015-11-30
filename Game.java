@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+
 public class Game{
+	
 	private EButton[] buttons; //Array of all 81 buttons
 	private Board theGame; //Instance of board for game
 	private JFrame window; 
@@ -13,7 +15,13 @@ public class Game{
 	private boolean gameWon;
 	private Scheme base;
 
-	//Buttons that hold information on which field and tile it is. 
+	//GameOver variables
+	private JFrame endGame;
+	private JLabel endGameLabel;
+	private JButton endGameMenu, endGamePlayAgain;
+	private JPanel endGamePanel1, endGamePanel2;
+	
+	/** Buttons that hold information on which field and tile it is. */
 	private class EButton extends JButton{
 		private int parentField; //index of parent field in game from 0 to 9
 		private int content; //index of tile in its parent frame from 0 to 9
@@ -26,7 +34,9 @@ public class Game{
 		}
 	}
 
-	//Swaps the turn of the player and changes the turnIndocator to indicate who is playing.
+	/**
+	* Swaps the turn of the player and changes the turnIndocator to indicate who is playing.
+	*/
 	private void changeTurn() {
 		theGame.changeActivePlayer();
 		scoreIndicator.setText(base.player1name + ": " + theGame.getP1Score() + 
@@ -34,12 +44,14 @@ public class Game{
 			"       Fields left in play: " + theGame.getWinnableFields());
 	}
 
-	//Changes the text in the status bar.
+	/**
+	* Changes the text in the status bar.
+	*/
 	private void setStatus(String s){
 		statusBar.setText(s);
 	}
 
-	//Whenever a button is pressed, do this run a turn sequence .
+	/** Whenever a button is pressed, do this run a turn sequence */
 	private class ButtonListener implements ActionListener{
 		//What the button will do.
 		public void actionPerformed(ActionEvent e){
@@ -48,11 +60,11 @@ public class Game{
 			Tile clickedTile = theGame.getTile(butt.parentField,butt.content); //Gets the tile in question
 			
 			
-			/** THIS IS FOR JOSH PLEASE KEEP COMMENTED OUT
+			/** THIS IS FOR TESTING ENDGAME. PLEASE KEEP COMMENTED OUT
 			if (butt.index() == 0) {
 				gameOver();
-			}
-			*/
+			}*/
+			
 			
 			setStatus("Please play in the green field, " + (theGame.getActivePlayer()? base.player2name : base.player1name)); //Set owner); //Resets the Status text
 			if(gameWon) {
@@ -135,19 +147,77 @@ public class Game{
 			recolor();
 		}
 	}
-
+	
+	/**
+	* Function that does all duties associated with the end of the game. Allows
+	* users to choose to quit and go to the main menu or play the game again
+	*/
 	public void gameOver(){
+		//Prints winner to status of game
 		setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Press any button to play again");
 		gameWon = true;
-		recolor();
 		
+		//Initializes JFrames and JPanels for endGame pop-up
+		endGame = new JFrame("Game Over");
+		endGamePanel1 = new JPanel(new BorderLayout());
+		endGamePanel2 = new JPanel(new FlowLayout());
+
+		//Creates text for JLabel in endGame pop-up
+		endGameLabel = new JLabel((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Would you like to play again?");
+		
+		//Initializes buttons for endGame pop-up
+		endGameMenu = new JButton("Menu");
+		endGamePlayAgain = new JButton("Play Again");
+		
+		//Adds components to panels for endGame pop-up
+		endGamePanel1.add(endGameLabel);
+		endGamePanel2.add(endGameMenu);
+		endGamePanel2.add(endGamePlayAgain);
+		
+		//Creates a layout for endGame pop-up
+		endGame.setLayout(new FlowLayout());
+		endGame.add(endGamePanel1);
+		endGame.add(endGamePanel2);
+		
+		//Sets dimensions and centers the endGame pop-up
+		endGame.setSize(300,100);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		endGame.setLocation(dim.width/2-endGame.getSize().width/2, dim.height/2-endGame.getSize().height/2);
+		endGame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		endGame.setVisible(true);
+		
+		//Action listeners for buttons of endGame pop-up
+		endGameMenuClicked menuClicked = new endGameMenuClicked();
+		endGameMenu.addActionListener(menuClicked);
+		
+		endGamePlayAgainClicked playAgainClicked = new endGamePlayAgainClicked();
+		endGamePlayAgain.addActionListener(playAgainClicked);
+		
+		//Recolors tiles to default
+		recolor();
 	}
 	
-	//Sets up all the Buttons assuming aa 9x9 grid
+	/** ActionListener for endGameMenu button */
+	public class endGameMenuClicked implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			//Main menu function call here
+		}
+	}
+	
+	/** ActionListener for endGamePlayAgain button */
+	public class endGamePlayAgainClicked implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			//PlayAgain function call here
+		}
+	}
+	
+	/**
+	* Sets up all the Buttons assuming aa 9x9 grid
+	*/
 	public void initButtons(){
 		buttons = new EButton[81];
-		for(int i = 0;i<81;i++){
-			buttons[i] = new EButton(i/9,i%9);
+		for(int i = 0; i < 81; i++){
+			buttons[i] = new EButton(i/9, i%9);
 			buttons[i].addActionListener(new ButtonListener());
 		}
 	}
@@ -175,9 +245,16 @@ public class Game{
 		window.setLayout(new BoxLayout(window.getContentPane(),BoxLayout.Y_AXIS));
 		window.pack();
 		window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);
 		window.setVisible(true);
 	}
-	public void fullView(){//sets grid to 9x9 view
+	
+	/**
+	* Sets grid to 9x9 view
+	*/
+	public void fullView(){
 		mode = true;
 		gameGrid = new JPanel(new GridLayout(3,3,10,10));
 		for(int i = 0; i < 9; i++) {
@@ -191,10 +268,17 @@ public class Game{
 		gameGrid.setPreferredSize(new Dimension(GAME_DIM, GAME_DIM));
 
 	}
+	
+	///////////////////////////////////////
 	public void subView(int f){
 		mode = false;
 	}
-	private void recolor(){//recolors all buttons. will recolor for either view
+	///////////////////////////////////////
+	
+	/**
+	* Recolors all buttons. Will recolor for either view
+	*/
+	private void recolor(){
 		for(EButton e: buttons){
 			e.setOpaque(true);
 			//Color all blank
@@ -217,17 +301,19 @@ public class Game{
 			c.setBackground(base.board);
 		}
 	}
+	
+	///////////////////////////////////////
 	public void endView() {} //End
+	///////////////////////////////////////
+	
 	public Game(){
 		theGame = new Board();
 		gameWon = false;
 		base = new Scheme();
 		initFrame();
 	}
+	
 	public static void main(String[] args){
 		Game g = new Game();
-
-
-
 	}
 }
