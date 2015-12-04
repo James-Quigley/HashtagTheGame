@@ -34,6 +34,9 @@ public class Board{
 	public void decWinnableFields(){
 		winnableFields--;
 	}
+	public int getWinnableFields() {
+		return winnableFields;
+	}
 
 	/**
 	* Increments pScore by one
@@ -59,7 +62,7 @@ public class Board{
 	/**
 	* Getter for p2Score
 	*/
-	public int getp2Score(){
+	public int getP2Score(){
 		return p2Score;
 	}
 	
