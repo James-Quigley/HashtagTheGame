@@ -8,9 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.GridLayout;
 
 public class AndroidGooey extends AppCompatActivity {
     private Button[] buttons = new Button[81];
+    private GridLayout[] fields = new GridLayout[9];
     private Board theGame;
     //private JFrame window;
     //private JPanel grid;
@@ -29,6 +31,13 @@ public class AndroidGooey extends AppCompatActivity {
             buttons[i] = ((Button) findViewById(id));
             buttons[i].setText(i + "");
             buttons[i].setTextColor(Color.TRANSPARENT);
+            buttons[i].setHeight(20);
+            buttons[i].setWidth(20);
+        }
+        for(int i = 0;i<9;i++) {
+            String gridID = "grid" + i;
+            int id = getResources().getIdentifier(gridID, "id", getPackageName());
+            fields[i] = (GridLayout)findViewById(id);
         }
         recolor();
     }
@@ -45,10 +54,6 @@ public class AndroidGooey extends AppCompatActivity {
         Button button = (Button)view;
 
         int buttonID = Integer.parseInt(button.getText().toString());
-        //Field clickedField = theGame.getField((int)buttonID/9); //Gets the field in question
-        //Tile clickedTile = theGame.getTile((int)buttonID/9, buttonID%9); //Gets the tile in question
-        //boolean gameWon = theGame.checkIfWon();
-        //int fip = theGame.getFieldInPlay();
         //end conditions
         int move = theGame.makePlayAt((int)buttonID/9, buttonID%9);
         if (move == 0) {//invalid move
@@ -59,6 +64,7 @@ public class AndroidGooey extends AppCompatActivity {
         if (move == 2) {//valid move, choose field in play
         }
         if (move == 3) {//game over
+            createToast("Player " + theGame.getWinner() + " wins!");
             endView();
         }
 
@@ -68,14 +74,25 @@ public class AndroidGooey extends AppCompatActivity {
     protected void recolor(){//recolors all buttons. will recolor for either view
         for(int i = 0; i < 81; i++){
             int t = theGame.getField((int)i/9).getTile(i%9).getOwner();
-            if(t == 0) buttons[i].setBackgroundColor(0xFFFFFFFF); // 0xAARRGGBB
-            if(t == 1) buttons[i].setBackgroundColor(0xFFC34C1D);
+            if(t == 0) buttons[i].setBackgroundColor(0xFFffffff); // 0xAARRGGBB
+            if(t == 1) buttons[i].setBackgroundColor(0xFFff3939);
             if(t == 2) buttons[i].setBackgroundColor(0xFF1F42F0);
             if(theGame.getLastIndex() == i) {
-                buttons[i].setBackgroundColor(0xFF98291E);
+                if(t == 1) buttons[i].setBackgroundColor(0xFF98291E);
+                else buttons[i].setBackgroundColor(0xFF031948);
             }
         }
+        for(int i = 0;i<9;i++){
+            int fip = theGame.getFieldInPlay();
+            int color = (theGame.getActivePlayer() == 1)? 0xFFffa6a6 : 0xFFa6e2ff;
+            if(fip == -1 || i == fip)
+                fields[i].setBackgroundColor(color);
+            else
+                fields[i].setBackgroundColor(0xFFFFFFFF);
+            //10DBF9 = light blue
+            //FF00B4 = pink
 
+        }
     }
     public void endView() {
         theGame.reset();

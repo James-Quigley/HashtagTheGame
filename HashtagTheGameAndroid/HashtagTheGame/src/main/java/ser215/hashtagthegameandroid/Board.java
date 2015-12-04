@@ -165,7 +165,9 @@ public class Board{
 
         return won;
     }
-
+    public int getWinner(){
+        return (p2Score < p1Score)? p1Score:p2Score;
+    }
     /**
      * Resets all variables for a new fullviewlayout situation
      */
