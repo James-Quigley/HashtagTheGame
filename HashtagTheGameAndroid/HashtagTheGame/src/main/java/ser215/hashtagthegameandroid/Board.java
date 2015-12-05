@@ -81,16 +81,14 @@ public class Board{
     /**
      * Getter for p1Score
      */
-    private int getP1Score(){
+    public int getP1Score(){
         return p1Score;
     }
 
     /**
      * Getter for p2Score
      */
-    private int getP2Score(){
-        return p2Score;
-    }
+    public int getP2Score(){return p2Score;}
 
     /**
      * If player one is active player, switches to player 2

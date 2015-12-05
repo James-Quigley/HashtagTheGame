@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.GridLayout;
+import android.widget.TextView;
 
 public class AndroidGooey extends AppCompatActivity {
     private Button[] buttons = new Button[81];
@@ -18,6 +20,7 @@ public class AndroidGooey extends AppCompatActivity {
     //private JPanel grid;
     //private JLabel statusBar, turnIndicator;
     private final int GAME_DIM = 600;
+    private TextView p1Score, p2Score;
 
 
     @Override
@@ -39,6 +42,14 @@ public class AndroidGooey extends AppCompatActivity {
             int id = getResources().getIdentifier(gridID, "id", getPackageName());
             fields[i] = (GridLayout)findViewById(id);
         }
+        p1Score = (TextView)findViewById(getResources().getIdentifier("textView","id",getPackageName()));
+        p2Score = (TextView)findViewById(getResources().getIdentifier("textView2", "id", getPackageName()));
+        p1Score.setBackgroundColor(0xFFff3939);
+        p2Score.setBackgroundColor(0xFF1F42F0);
+        p1Score.setText("0");
+        p2Score.setText("0");
+        //p1Score.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        p1Score.setGravity(Gravity.CENTER_VERTICAL);
         recolor();
     }
 
@@ -67,7 +78,8 @@ public class AndroidGooey extends AppCompatActivity {
             createToast("Player " + theGame.getWinner() + " wins!");
             endView();
         }
-
+        p1Score.setText(theGame.getP1Score()+"");
+        p2Score.setText(theGame.getP2Score()+"");
         recolor();
     }
 
