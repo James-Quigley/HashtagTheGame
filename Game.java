@@ -60,7 +60,7 @@ public class Game{
 			Tile clickedTile = theGame.getTile(butt.parentField,butt.content); //Gets the tile in question
 			
 			
-			/** THIS IS FOR TESTING ENDGAME. PLEASE KEEP COMMENTED OUT
+			/**THIS IS FOR TESTING ENDGAME. PLEASE KEEP COMMENTED OUT
 			if (butt.index() == 0) {
 				gameOver();
 			}*/
@@ -207,7 +207,10 @@ public class Game{
 	/** ActionListener for endGamePlayAgain button */
 	public class endGamePlayAgainClicked implements ActionListener{
 		public void actionPerformed(ActionEvent e){
-			//PlayAgain function call here
+			theGame = new Board();
+			gameWon = false;
+			base = new Scheme();
+			initFrame();
 		}
 	}
 	
