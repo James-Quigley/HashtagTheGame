@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.event.*;
 import java.awt.*;
 
@@ -13,13 +14,22 @@ public class Game{
 	private boolean mode; //true = full view, false = subView
 	private final int GAME_DIM = 600; //Game dimensions
 	private boolean gameWon;
-	private Scheme base;
+	private Scheme base, player1, player2;
 
 	//GameOver variables
 	private JFrame endGame;
 	private JLabel endGameLabel;
 	private JButton endGameMenu, endGamePlayAgain;
 	private JPanel endGamePanel1, endGamePanel2;
+
+	//MainMenu variables
+	private JFrame mainMenu;
+	private JLabel  mainMenuTitle, mainMenuColorCommands;
+	private JButton mainMenuStart;
+	private PButton mainMenuOneSelect, mainMenuTwoSelect;
+	private TButton [] mainMenuThemes;
+	private JPanel mainMenuPlayers, mainMenuColors;
+	private boolean colorSelect;
 	
 	/** Buttons that hold information on which field and tile it is. */
 	private class EButton extends JButton{
@@ -34,13 +44,32 @@ public class Game{
 		}
 	}
 
+	private class TButton extends JButton {
+		private Scheme color;
+		private int owner;
+		private int location;
+		public TButton(int l) {
+			color = new Scheme(l);
+			owner = 0;
+			location = l;
+		}
+	}
+	private class PButton extends JButton {
+		private boolean owner;
+		public PButton(String t, boolean i) {
+			setText(t);
+			owner = i;
+		}
+	}
+
+
 	/**
 	* Swaps the turn of the player and changes the turnIndocator to indicate who is playing.
 	*/
 	private void changeTurn() {
 		theGame.changeActivePlayer();
-		scoreIndicator.setText(base.player1name + ": " + theGame.getP1Score() + 
-			"       " + base.player2name + ": " + theGame.getP2Score() +
+		scoreIndicator.setText(player1.name + ": " + theGame.getP1Score() + 
+			"       " + player2.name + ": " + theGame.getP2Score() +
 			"       Fields left in play: " + theGame.getWinnableFields());
 	}
 
@@ -59,19 +88,16 @@ public class Game{
 			Field clickedField = theGame.getField(butt.parentField); //Gets the field in question
 			Tile clickedTile = theGame.getTile(butt.parentField,butt.content); //Gets the tile in question
 			
-			
 			/**THIS IS FOR TESTING ENDGAME. PLEASE KEEP COMMENTED OUT
 			if (butt.index() == 0) {
+				gameWon = true;
 				gameOver();
 			}*/
 			
 			
-			setStatus("Please play in the green field, " + (theGame.getActivePlayer()? base.player2name : base.player1name)); //Set owner); //Resets the Status text
+			setStatus("Please play in the highlighted field, " + (theGame.getActivePlayer()? player2.name : player1.name)); //Set owner); //Resets the Status text
 			if(gameWon) {
-				theGame.reset();
-				gameWon = false;
-				setStatus("Welcome to #TheGame! Press any square to start, " + base.player1name);
-				recolor();
+				setStatus((theGame.getActivePlayer()? player2.name : player1.name) + " won!");
 				return;
 			}
 			//If players could have chosen any field. 
@@ -84,7 +110,7 @@ public class Game{
 							gameOver();
 							return;	
 						} 
-						setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won a field.");
+						setStatus((theGame.getActivePlayer()? player2.name : player1.name) + " won a field.");
 					}
 					else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
 						theGame.decWinnableFields(); //Decreases winnable fields due to cats game
@@ -99,12 +125,12 @@ public class Game{
 						theGame.setFieldInPlay(butt.content);                            
 					}
 					else { //The field the next player was sent is full
-						setStatus("You can play anywhere, " + (theGame.getActivePlayer()? base.player2name : base.player1name));
+						setStatus("You can play anywhere, " + (theGame.getActivePlayer()? player2.name : player1.name));
 						theGame.setFieldInPlay(-1);
 					}
 				}
 				else { //Clicked Tile is not free
-					setStatus("That's not a free tile, " + (theGame.getActivePlayer()? base.player2name : base.player1name));
+					setStatus("That's not a free tile, " + (theGame.getActivePlayer()? player2.name : player1.name));
 				}
 			}
 
@@ -118,7 +144,7 @@ public class Game{
 							gameOver();
 							return;	
 						} 
-						setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won a field.");
+						setStatus((theGame.getActivePlayer()? player2.name : player1.name) + " won a field.");
 					}
 					else if (clickedField.isFull() && clickedField.getOwner() == 0) { //Check if field was catsgamed
 						theGame.decWinnableFields(); //Decreases winnable fields due to cats game
@@ -133,16 +159,16 @@ public class Game{
 						theGame.setFieldInPlay(butt.content);                            
 					}
 					else { //The field the next player was sent is full
-						setStatus("You can play anywhere, " + (theGame.getActivePlayer()? base.player2name : base.player1name));
+						setStatus("You can play anywhere, " + (theGame.getActivePlayer()? player2.name : player1.name));
 						theGame.setFieldInPlay(-1);
 					}
 				}
 				else { //Clicked Tile is not free
-					setStatus("That's not a free tile, " + (theGame.getActivePlayer()? base.player2name : base.player1name));
+					setStatus("That's not a free tile, " + (theGame.getActivePlayer()? player2.name : player1.name));
 				}
 			}
 			else {
-				setStatus("That's not the right field, " + (theGame.getActivePlayer()? base.player2name : base.player1name));
+				setStatus("That's not the right field, " + (theGame.getActivePlayer()? player2.name : player1.name));
 			}
 			recolor();
 		}
@@ -154,7 +180,7 @@ public class Game{
 	*/
 	public void gameOver(){
 		//Prints winner to status of game
-		setStatus((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Press any button to play again");
+		setStatus((theGame.getActivePlayer()? player2.name : player1.name) + " won!");
 		gameWon = true;
 		
 		//Initializes JFrames and JPanels for endGame pop-up
@@ -163,19 +189,28 @@ public class Game{
 		endGamePanel2 = new JPanel(new FlowLayout());
 
 		//Creates text for JLabel in endGame pop-up
-		endGameLabel = new JLabel((theGame.getActivePlayer()? base.player2name : base.player1name) + " won! Would you like to play again?");
+		endGameLabel = new JLabel((theGame.getActivePlayer()? player2.name : player1.name) + " won! \n Would you like to play again?");
+		endGameLabel.setFont(mainMenuTitle.getFont().deriveFont(24.0f));
+		endGameLabel.setBorder(BorderFactory.createEmptyBorder(10,10,0,10));
 		
 		//Initializes buttons for endGame pop-up
-		endGameMenu = new JButton("Menu");
+		endGameMenu = new JButton("   Menu   ");
+		endGameMenu.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		endGameMenu.setFocusPainted(false);
+		endGameMenu.setBackground(base.dark);
 		endGamePlayAgain = new JButton("Play Again");
-		
+		endGamePlayAgain.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		endGamePlayAgain.setFocusPainted(false);
+		endGamePlayAgain.setBackground(base.dark);
+
+
 		//Adds components to panels for endGame pop-up
 		endGamePanel1.add(endGameLabel);
 		endGamePanel2.add(endGameMenu);
 		endGamePanel2.add(endGamePlayAgain);
 		
 		//Creates a layout for endGame pop-up
-		endGame.setLayout(new FlowLayout());
+		endGame.setLayout(new BoxLayout(endGame.getContentPane(),BoxLayout.Y_AXIS));
 		endGame.add(endGamePanel1);
 		endGame.add(endGamePanel2);
 		
@@ -185,6 +220,7 @@ public class Game{
 		endGame.setLocation(dim.width/2-endGame.getSize().width/2, dim.height/2-endGame.getSize().height/2);
 		endGame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		endGame.setVisible(true);
+		endGame.pack();
 		
 		//Action listeners for buttons of endGame pop-up
 		endGameMenuClicked menuClicked = new endGameMenuClicked();
@@ -196,26 +232,167 @@ public class Game{
 		//Recolors tiles to default
 		recolor();
 	}
-	
+
 	/** ActionListener for endGameMenu button */
 	public class endGameMenuClicked implements ActionListener{
 		public void actionPerformed(ActionEvent e){
-			//Main menu function call here
+			window.setVisible(false);
+			endGame.setVisible(false);
+			theGame = new Board();
+			gameWon = false;
+			base = new Scheme();
+			setupMainMenu();
 		}
 	}
 	
 	/** ActionListener for endGamePlayAgain button */
 	public class endGamePlayAgainClicked implements ActionListener{
 		public void actionPerformed(ActionEvent e){
+			endGame.setVisible(false);
+			window.setVisible(false);
 			theGame = new Board();
 			gameWon = false;
 			base = new Scheme();
 			initFrame();
 		}
 	}
-	
+
+	/*
+	* Function that does all duties associated with the main menu of the game. Allows
+	* users to choose to start the game or change their theme.
+	*/
+	public void setupMainMenu() {
+		//Initalizes JFrame for mainMenu
+		mainMenu = new JFrame("Main Menu");
+		mainMenu.setLayout(new BoxLayout(mainMenu.getContentPane(),BoxLayout.Y_AXIS));
+		mainMenu.setSize(300,400);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		mainMenu.setLocation(dim.width/2-mainMenu.getSize().width/2, dim.height/2-mainMenu.getSize().height/2);
+		mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainMenu.setVisible(true);
+		
+		//Sets up the title
+		mainMenuTitle = new JLabel("Hashtag The Game");
+		mainMenuTitle.setFont(mainMenuTitle.getFont().deriveFont(24.0f));
+		mainMenuTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+		mainMenuTitle.setBorder(BorderFactory.createEmptyBorder(10,10,0,10));
+		mainMenu.add(mainMenuTitle);
+
+		//Sets up the color choosing text
+		mainMenuColorCommands = new JLabel(player1.name + " vs " + player2.name);
+		mainMenuColorCommands.setFont(mainMenuColorCommands.getFont().deriveFont(18.0f));
+		mainMenuColorCommands.setAlignmentX(Component.CENTER_ALIGNMENT);
+		mainMenuColorCommands.setBorder(BorderFactory.createEmptyBorder(10,0,10,10));
+		mainMenu.add(mainMenuColorCommands);
+
+		//Sets up the start button.
+		mainMenuStart = new JButton("             Start             ");
+		mainMenuStart.addActionListener(new mainMenuStartClicked());
+		mainMenuStart.setAlignmentX(Component.CENTER_ALIGNMENT);
+		mainMenuStart.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		mainMenuStart.setFocusPainted(false);
+		mainMenuStart.setBackground(base.dark);
+		mainMenu.add(mainMenuStart);
+
+		//Sets up the player color changing selection
+		mainMenuPlayers = new JPanel(new FlowLayout());
+		mainMenuPlayers.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		mainMenuPlayers.setAlignmentX(Component.CENTER_ALIGNMENT);
+		//Sets up Selector for player 1
+		mainMenuOneSelect = new PButton("Player One Color", false);
+		mainMenuOneSelect.addActionListener(new mainMenuPlayerClicked());
+		mainMenuOneSelect.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		mainMenuOneSelect.setFocusPainted(false);
+		mainMenuOneSelect.setBackground(player1.light);
+		mainMenuPlayers.add(mainMenuOneSelect);
+		//Sets up Selector for player 2
+		mainMenuTwoSelect = new PButton("Player Two Color", true);
+		mainMenuTwoSelect.addActionListener(new mainMenuPlayerClicked());
+		mainMenuTwoSelect.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+		mainMenuTwoSelect.setFocusPainted(false);
+		mainMenuTwoSelect.setBackground(player2.light);
+		mainMenuPlayers.add(mainMenuTwoSelect);
+		mainMenu.add(mainMenuPlayers);
+
+		//Sets up the color selection
+		themeButtons();
+		mainMenuColors = new JPanel(new GridLayout(1,5,10,10));
+		mainMenuColors.setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
+		for(int i = 0; i < 5; i++) {
+			mainMenuColors.add(mainMenuThemes[i]);
+		}
+		mainMenu.add(mainMenuColors);
+
+		//Packs it all in
+		mainMenu.pack();
+	} 
+
+	//Button listener for the start button
+	public class mainMenuStartClicked implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			mainMenu.setVisible(false);
+			initFrame();
+		}
+	}
+	//Button listener for the player selector
+	public class mainMenuPlayerClicked implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			colorSelect = ((PButton)e.getSource()).owner;
+			mainMenuOneSelect.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+			mainMenuTwoSelect.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+
+			if(!colorSelect) {
+				mainMenuOneSelect.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			}
+			else {
+				mainMenuTwoSelect.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			}
+		}
+	}
+	//Button listener for the theme selector
+	public class mainMenuThemeClicked implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			TButton clicked = (TButton)e.getSource();
+			if(!colorSelect && clicked.color.name != player2.name) {
+				player1 = clicked.color;
+			}
+			if(colorSelect && clicked.color.name != player1.name) {
+				player2 = clicked.color;
+			}
+			for (int i = 0; i < 5; i++) {
+				mainMenuThemes[i].setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+				if(mainMenuThemes[i].color.name == player1.name) {
+					mainMenuThemes[i].setBorder(new LineBorder(player1.dark,10));
+				}
+				if(mainMenuThemes[i].color.name == player2.name) {
+					mainMenuThemes[i].setBorder(new LineBorder(player2.dark,10));
+				}
+			}
+			mainMenuOneSelect.setBackground(player1.light);
+			mainMenuTwoSelect.setBackground(player2.light);
+			mainMenuColorCommands.setText(player1.name + " vs " + player2.name);
+		}
+	}
+	//Initalizes all the theme buttons.
+	public void themeButtons() {
+		mainMenuThemes = new TButton[5];
+		for (int i = 0; i < 5; i++) {
+			mainMenuThemes[i] = new TButton(i);
+			mainMenuThemes[i].setBackground(mainMenuThemes[i].color.light);
+			mainMenuThemes[i].setPreferredSize(new Dimension(50,50));
+			mainMenuThemes[i].setFocusPainted(false);
+			mainMenuThemes[i].setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			if(mainMenuThemes[i].color.name == player1.name) {
+				mainMenuThemes[i].setBorder(new LineBorder(player1.dark,10));
+			}
+			if(mainMenuThemes[i].color.name == player2.name) {
+				mainMenuThemes[i].setBorder(new LineBorder(player2.dark,10));
+			}
+			mainMenuThemes[i].addActionListener(new mainMenuThemeClicked());
+		}
+	}
 	/**
-	* Sets up all the Buttons assuming aa 9x9 grid
+	* Sets up all the Buttons assuming a 9x9 grid
 	*/
 	public void initButtons(){
 		buttons = new EButton[81];
@@ -230,9 +407,9 @@ public class Game{
 		window = new JFrame();
 
 		fullView();
-		statusBar = new JLabel("Welcome to #TheGame! Press any square to start, " + base.player1name);
-		scoreIndicator = new JLabel(base.player1name + ": " + theGame.getP1Score() + 
-			"       " + base.player2name + ": " + theGame.getP2Score() +
+		statusBar = new JLabel("Welcome to #TheGame! Press any square to start, " + player1.name);
+		scoreIndicator = new JLabel(player1.name + ": " + theGame.getP1Score() + 
+			"       " + player2.name + ": " + theGame.getP2Score() +
 			"       Fields left in play: " + theGame.getWinnableFields());
 			
 		scoreIndicator.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -261,7 +438,7 @@ public class Game{
 		mode = true;
 		gameGrid = new JPanel(new GridLayout(3,3,10,10));
 		for(int i = 0; i < 9; i++) {
-			frameGrid = new JPanel(new GridLayout(3,3,5,5));
+			frameGrid = new JPanel(new GridLayout(3,3,7,7));
 			for(int j = 0; j < 9; j++) {
 				frameGrid.add(buttons[i*9+j]);
 			}
@@ -269,7 +446,6 @@ public class Game{
 		}
 		recolor();
 		gameGrid.setPreferredSize(new Dimension(GAME_DIM, GAME_DIM));
-
 	}
 	
 	///////////////////////////////////////
@@ -282,27 +458,28 @@ public class Game{
 	* Recolors all buttons. Will recolor for either view
 	*/
 	private void recolor(){
+		for(Component c : gameGrid.getComponents()) {
+			c.setBackground(base.dark);
+		}
 		for(EButton e: buttons){
 			e.setOpaque(true);
 			//Color all blank
-			e.setBackground(base.tile);
+			e.setBackground(base.light);
+
 			//Color the field in play
 			if(e.parentField == theGame.getFieldInPlay() || theGame.getFieldInPlay() == -1) {
-				e.setBackground(base.field);
+				e.getParent().setBackground(theGame.getActivePlayer()? player2.field : player1.field);
 			}
 			int t = theGame.getField(e.parentField).getTile(e.content).getOwner();
 			//Color taken spaces
-			if(t == 1) e.setBackground(base.player1);
-			if(t == 2) e.setBackground(base.player2);
+			if(t == 1) e.setBackground(player1.light);
+			if(t == 2) e.setBackground(player2.light);
 			//Color last played
 			if(e.index() == theGame.getLastIndex()) {
-				e.setBackground(theGame.getActivePlayer()? base.player1new : base.player2new);
+				e.setBackground(theGame.getActivePlayer()? player1.dark : player2.dark);
 			}
 		}
-		gameGrid.setBackground(base.board);
-		for(Component c : gameGrid.getComponents()) {
-			c.setBackground(base.board);
-		}
+		gameGrid.setBackground(base.dark);
 	}
 	
 	///////////////////////////////////////
@@ -313,10 +490,13 @@ public class Game{
 		theGame = new Board();
 		gameWon = false;
 		base = new Scheme();
-		initFrame();
+		player1 = new Scheme(0);
+		player2 = new Scheme(3);
+	//	initFrame();
 	}
 	
 	public static void main(String[] args){
 		Game g = new Game();
+		g.setupMainMenu();
 	}
 }
