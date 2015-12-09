@@ -95,7 +95,7 @@ public class Game{
 			}*/
 			
 			
-			setStatus("Please play in the highlighted field, " + (theGame.getActivePlayer()? player2.name : player1.name)); //Set owner); //Resets the Status text
+			setStatus("Please play in the highlighted field, " + (theGame.getActivePlayer()? player1.name : player2.name)); //Set owner); //Resets the Status text
 			if(gameWon) {
 				setStatus((theGame.getActivePlayer()? player2.name : player1.name) + " won!");
 				return;
