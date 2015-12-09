@@ -459,7 +459,7 @@ public class Game{
 	*/
 	private void recolor(){
 		for(Component c : gameGrid.getComponents()) {
-			c.setBackground(base.dark);
+			c.setBackground(base.field);
 		}
 		for(EButton e: buttons){
 			e.setOpaque(true);
