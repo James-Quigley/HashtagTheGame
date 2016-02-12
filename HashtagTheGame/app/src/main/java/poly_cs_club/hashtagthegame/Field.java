@@ -13,7 +13,7 @@ public class Field{
      */
     public Field(){
         m_Tiles = new Tile[3][3];
-        owner = "Unkown";
+        owner = "Unknown";
         m_IsFull = false;
         setUpField();
     }

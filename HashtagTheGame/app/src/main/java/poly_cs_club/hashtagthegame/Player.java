@@ -9,7 +9,7 @@ public class Player
     private int m_Type;//0 Human, 1 CPU, 2 Human-Internet
     public Player()
     {
-        m_Name = "Unkown";
+        m_Name = "Unknown";
         m_Type = 0;
     }
     public Player(String name, int type)
