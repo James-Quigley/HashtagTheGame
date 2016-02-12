@@ -20,6 +20,6 @@ public class Board{
      */
     public void setTile(int x, int y, String playerName)
     {
-        m_Field[x][y].setOwner(playerName);
+        m_Fields[x][y].setOwner(playerName);
     }
 }
