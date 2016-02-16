@@ -5,30 +5,22 @@ package poly_cs_club.hashtagthegame;
  */
 public class GameLogic
 {
-    private Board m_GameBoard;
+    private GameBoard m_GameBoard;
     private Player m_PlayerOne;
     private Player m_PlayerTwo;
     private boolean m_Turn; // true player one, false player two.
 
     public GameLogic(int playerOneType, int playerTwoType)
     {
-        m_GameBoard = new Board();
+        m_GameBoard = new GameBoard();
         m_PlayerOne = new Player("PlayerOne", playerOneType);
         m_PlayerTwo = new Player("PlayerTwo", playerTwoType);
         m_Turn = false;
     }
 
-    public void takeTurn(int x_F, int y_F, int x, int y)
+    public void takeTurn(Player player,Location selectedTile)
     {
-        /*(m_GameBoard.getTile(x_F,y_F,x,y)
-        {
-            //Send Message to User tile is full;
-        }else if(m_Turn)// player One Turn
-        {
-
-        }else// Player Two Turn
-        {
-
-        }*/
+        if(!m_GameBoard.IsTileFull(selectedTile))
+        m_GameBoard.setTileOwner(player, selectedTile);
     }
 }
