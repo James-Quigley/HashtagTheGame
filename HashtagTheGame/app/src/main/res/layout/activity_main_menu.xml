@@ -10,7 +10,7 @@
     tools:context="poly_cs_club.hashtagthegame.MainMenu"
     android:columnCount="3"
     android:rowCount="3"
-    android:background="@color/grey_50">
+    android:background="@color/blue_100">
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         android:elegantTextHeight="false"
         android:layout_gravity="center"
         android:textColor="@color/blue_400"
-        android:background="@color/grey_400" />
+        android:background="@color/white" />
 
     <Button
         android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
         android:textColor="@color/blue_400"
-        android:background="@color/grey_400" />
+        android:background="@color/white" />
 
     <Button
         android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
         android:textColor="@color/blue_400"
-        android:background="@color/grey_400" />
+        android:background="@color/white" />
 
     <Button
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
         android:textColor="@color/blue_400"
-        android:background="@color/grey_400" />
+        android:background="@color/white" />
 
     <Button
         android:layout_width="wrap_content"
@@ -75,5 +75,5 @@
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
         android:textColor="@color/blue_400"
-        android:background="@color/grey_400" />
+        android:background="@color/white" />
 </GridLayout>
