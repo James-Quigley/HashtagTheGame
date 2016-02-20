@@ -24,6 +24,7 @@ public class Field{
     public void setOwner(String owner)
     {
         this.owner = owner;
+        fillField();
     }
 
     /**

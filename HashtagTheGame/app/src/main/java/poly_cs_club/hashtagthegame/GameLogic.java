@@ -21,6 +21,29 @@ public class GameLogic
     public void takeTurn(Player player,Location selectedTile)
     {
         if(!m_Board.IsTileFull(selectedTile))
-        m_Board.setTileOwner(player, selectedTile);
+        {
+            m_Board.setTileOwner(player, selectedTile);
+            m_Turn = !m_Turn;
+            if(ifFeildIsTaken())
+            {
+                m_Board.setFieldOwner(player, selectedTile);
+                //update Field
+                if(ifGameWon())
+                {
+                    //update Game Screen
+                }
+            }
+        }else
+        {
+            //send message that tile is taken...
+        }
+    }
+    private boolean ifFeildIsTaken()
+    {
+        return false;
+    }
+    private boolean ifGameWon()
+    {
+        return false;
     }
 }

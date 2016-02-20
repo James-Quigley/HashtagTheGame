@@ -56,18 +56,19 @@ public class Board{
 
     /**
      * set Field Onwer
-     * @param x Field x value
-     * @param y Field y Value
-     * @param playerName Name of Player Owner
+     * @param player
+     * @param loc
      */
-    public void setFieldOwner(int x, int y,String playerName)
+    public void setFieldOwner(Player player, Location loc)
     {
-        m_Fields[x][y].setOwner(playerName);
+        m_Fields[loc.x_Field][loc.y_Field].setOwner(player.getName());
     }
 
     /**
      * set Tile Owner
-     **/
+     * @param player
+     * @param loc
+     */
     public void setTileOwner(Player player, Location loc)
     {
         m_Fields[loc.x_Field][loc.y_Field].getTile(loc.x_Tile, loc.y_Tile).setOwner(player.getName());
