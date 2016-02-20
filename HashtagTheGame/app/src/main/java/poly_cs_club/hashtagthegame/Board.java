@@ -6,7 +6,6 @@ package poly_cs_club.hashtagthegame;
  * Represents the fullviewlayout board of #TheGame
  */
 public class Board{
-
     private Field[][] m_Fields;	//Represents the fields of pla
 
     public Board()
@@ -50,6 +49,11 @@ public class Board{
         m_Fields[x_F][y_F].getTile(x,y).fill();
     }
 
+    public boolean IsTileFull(Location loc)
+    {
+        return m_Fields[loc.x_Field][loc.y_Field].getTile(loc.x_Tile, loc.y_Tile).isFull();
+    }
+
     /**
      * set Field Onwer
      * @param x Field x value
@@ -63,15 +67,10 @@ public class Board{
 
     /**
      * set Tile Owner
-     * @param x_F x value of Field
-     * @param y_F y value of Field
-     * @param x x value of Tile
-     * @param y y Value of Tile
-     * @param playerName Name of Owner
-     */
-    public void setTileOwner(int x_F,int y_F, int x, int y,String playerName)
+     **/
+    public void setTileOwner(Player player, Location loc)
     {
-        m_Fields[x_F][y_F].getTile(x, y).setOwner(playerName);
+        m_Fields[loc.x_Field][loc.y_Field].getTile(loc.x_Tile, loc.y_Tile).setOwner(player.getName());
     }
     public void setUpField()
     {
@@ -85,6 +84,6 @@ public class Board{
     }
     public void getTile(int x_F,int y_F, int x, int y)
     {
-        m_Fields[x_F][y_F].getTile(x,y);
+        m_Fields[x_F][y_F].getTile(x, y);
     }
 }
