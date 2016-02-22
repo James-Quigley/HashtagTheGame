@@ -7,15 +7,18 @@ public class Player
 {
     private String m_Name;
     private int m_Type;//0 Human, 1 CPU, 2 Human-Internet
+    private int m_Score;
     public Player()
     {
         m_Name = "Unknown";
         m_Type = 0;
+        m_Score = 0;
     }
     public Player(String name, int type)
     {
         m_Name = name;
         m_Type = type;
+        m_Score = 0;
     }
 
     public int getType() {
@@ -32,5 +35,13 @@ public class Player
     public void setType(int type)
     {
         m_Type = type;
+    }
+    public int getScore()
+    {
+        return m_Score;
+    }
+    public void setScore(int score)
+    {
+        m_Score = score;
     }
 }

@@ -7,10 +7,14 @@ package poly_cs_club.hashtagthegame;
  */
 public class Board{
     private Field[][] m_Fields;	//Represents the fields of pla
+    private boolean m_GameWon;
+    private int m_WinnableFields;
 
     public Board()
     {
         m_Fields = new Field[3][3];
+        m_GameWon = false;
+        m_WinnableFields = 9;
         setUpField();
     }
 
@@ -20,7 +24,7 @@ public class Board{
      */
     public void setTile(Location loc, String playerName)
     {
-        m_Fields[loc.x_Field][loc.y_Field].setTile(loc.x_Tile,loc.y_Tile, playerName);
+        m_Fields[loc.x_Field][loc.y_Field].setTile(loc.x_Tile, loc.y_Tile, playerName);
     }
 
     /**
@@ -31,6 +35,7 @@ public class Board{
     public void fillField(int x, int y)
     {
         m_Fields[x][y].fillField();
+        m_WinnableFields -= 1;
     }
 
     /**
@@ -83,4 +88,17 @@ public class Board{
     {
         return m_Fields[loc.x_Field][loc.y_Field].isFull();
     }
+
+    public boolean isGameWon(int p1Score, int p2Score)
+    {
+        if((p1Score > p2Score) && ((p2Score + m_WinnableFields) < p1Score)){ //Player 1 wins
+            m_GameWon = true;
+
+        }else if((p2Score > p1Score) && ((p1Score + m_WinnableFields) < p2Score)){ //Player 2 wins
+            m_GameWon = true;
+        }
+        return m_GameWon;
+    }
+
+
 }

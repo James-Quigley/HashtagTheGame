@@ -59,6 +59,6 @@ public class Game extends Activity {
     }
     private boolean ifGameWon()
     {
-        return false;
+        return m_Board.isGameWon(m_PlayerOne.getScore(), m_PlayerTwo.getScore());
     }
 }

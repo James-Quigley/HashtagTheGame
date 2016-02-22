@@ -40,7 +40,17 @@ public class Field{
      */
     public boolean isFull()
     {
-        return m_IsFull;
+        for(int x = 0; x < 3; x++)
+        {
+            for(int y = 0; y < 3; y++)
+            {
+                if(!this.m_Tiles[x][y].isFull())
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
