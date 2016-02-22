@@ -1,8 +1,5 @@
 package poly_cs_club.hashtagthegame;
 
-/**
- * Created by Josh on 2/12/2016.
- */
 public class Tile{
 
     private String m_Owner; //0, 1, or 2 depending on who owns the tile
@@ -21,6 +18,7 @@ public class Tile{
      */
     void setOwner(String owner){
         this.m_Owner = owner;
+        fill();
     }
 
     /**
