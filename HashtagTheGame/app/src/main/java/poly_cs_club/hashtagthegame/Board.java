@@ -59,6 +59,7 @@ public class Board{
     public void setFieldOwner(Player player, Location loc)
     {
         m_Fields[loc.x_Field][loc.y_Field].setOwner(player.getName());
+        m_WinnableFields -= 1;
     }
 
     /**
