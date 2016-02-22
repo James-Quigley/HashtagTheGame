@@ -9,12 +9,14 @@ public class Board{
     private Field[][] m_Fields;	//Represents the fields of pla
     private boolean m_GameWon;
     private int m_WinnableFields;
+    private Location fieldInPlay;
 
     public Board()
     {
         m_Fields = new Field[3][3];
         m_GameWon = false;
         m_WinnableFields = 9;
+        fieldInPlay = new Location(-1,-1,-1,-1);
         setUpField();
     }
 

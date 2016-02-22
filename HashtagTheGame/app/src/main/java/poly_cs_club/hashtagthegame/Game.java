@@ -3,6 +3,7 @@ package poly_cs_club.hashtagthegame;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class Game extends Activity {
 
@@ -39,7 +40,7 @@ public class Game extends Activity {
         {
             m_Board.setTileOwner(player, selectedTile);
             m_Turn = !m_Turn;
-            if(ifFeildIsTaken(selectedTile))
+            if(ifFieldIsTaken(selectedTile))
             {
                 m_Board.setFieldOwner(player, selectedTile);
                 //update Field
@@ -53,12 +54,25 @@ public class Game extends Activity {
             //send message that tile is taken...
         }
     }
-    private boolean ifFeildIsTaken(Location loc)
+    private boolean ifFieldIsTaken(Location loc)
     {
        return m_Board.isFieldFull(loc);
     }
     private boolean ifGameWon()
     {
         return m_Board.isGameWon(m_PlayerOne.getScore(), m_PlayerTwo.getScore());
+    }
+
+    public void onTileClick(View view) {
+        String idString = view.getTag().toString();
+        String[] locationValues = idString.split(",");
+        Integer[] locationIntValues = new Integer[locationValues.length];
+        for (int i = 0; i < locationValues.length;i++){
+            locationIntValues[i] = Integer.parseInt(locationValues[i]);
+        }
+
+        //Location of the clicked tile
+        Location location = new Location(locationIntValues[0],locationIntValues[1],locationIntValues[2],locationIntValues[3]);
+
     }
 }
