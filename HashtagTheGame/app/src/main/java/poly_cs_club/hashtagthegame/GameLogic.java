@@ -24,7 +24,7 @@ public class GameLogic
         {
             m_Board.setTileOwner(player, selectedTile);
             m_Turn = !m_Turn;
-            if(ifFeildIsTaken())
+            if(ifFeildIsTaken(selectedTile))
             {
                 m_Board.setFieldOwner(player, selectedTile);
                 //update Field
@@ -38,9 +38,9 @@ public class GameLogic
             //send message that tile is taken...
         }
     }
-    private boolean ifFeildIsTaken()
+    private boolean ifFeildIsTaken(Location loc)
     {
-        return false;
+       return m_Board.isFieldFull(loc);
     }
     private boolean ifGameWon()
     {
