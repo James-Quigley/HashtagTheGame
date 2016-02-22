@@ -77,6 +77,5 @@ public class Field{
     public void setTile(int x, int y, String playerName)
     {
         m_Tiles[x][y].setOwner(playerName);
-        m_Tiles[x][y].fill();
     }
 }
