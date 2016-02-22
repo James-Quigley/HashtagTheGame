@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="poly_cs_club.hashtagthegame.GameBoard"
+    tools:context=".Game"
     android:background="@color/blue_100">
 
     <GridLayout

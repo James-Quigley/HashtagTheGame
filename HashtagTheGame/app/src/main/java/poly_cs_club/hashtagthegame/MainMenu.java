@@ -14,7 +14,7 @@ public class MainMenu extends Activity {
     }
 
     public void onClick(View view){
-        Intent myIntent = new Intent(this, GameBoard.class);
+        Intent myIntent = new Intent(this, Game.class);
         if(view.getId() == R.id.singlePlayer) {
             myIntent.putExtra("gameType", "single");
         }
