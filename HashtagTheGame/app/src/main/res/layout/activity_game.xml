@@ -37,7 +37,8 @@
                 android:elevation="25dp"
                 android:layout_margin="3dp"
                 android:tag="0,0,0,0"
-                android:id="@+id/field00button00" />
+                android:id="@+id/field00button00"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -48,7 +49,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -59,7 +61,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -70,7 +73,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -81,7 +85,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -92,7 +97,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -103,7 +109,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -114,7 +121,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -125,7 +133,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
         <GridLayout
@@ -146,7 +155,8 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -157,7 +167,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -168,7 +179,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -179,7 +191,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -190,7 +203,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -201,7 +215,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -212,7 +227,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -223,7 +239,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -234,7 +251,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
         <GridLayout
@@ -255,7 +273,8 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -266,7 +285,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -277,7 +297,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -288,7 +309,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -299,7 +321,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -310,7 +333,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -321,7 +345,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -332,7 +357,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -343,7 +369,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
         <GridLayout
@@ -364,7 +391,8 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -375,7 +403,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -386,7 +415,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -397,7 +427,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -408,7 +439,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -419,7 +451,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -430,7 +463,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -441,7 +475,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -452,7 +487,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
         <GridLayout
@@ -473,7 +509,8 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -484,7 +521,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -495,7 +533,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -506,7 +545,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -517,7 +557,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -528,7 +569,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -539,7 +581,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -550,7 +593,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -561,7 +605,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
         <GridLayout
@@ -582,7 +627,8 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -593,7 +639,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -604,7 +651,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -615,7 +663,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -626,7 +675,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -637,7 +687,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -648,7 +699,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -659,7 +711,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -670,7 +723,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
         <GridLayout
@@ -691,7 +745,8 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -702,7 +757,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -713,7 +769,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -724,7 +781,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -735,7 +793,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -746,7 +805,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -757,7 +817,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -768,7 +829,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -779,7 +841,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
         <GridLayout
@@ -800,7 +863,8 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -811,7 +875,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -822,7 +887,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -833,7 +899,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -844,7 +911,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -855,7 +923,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -866,7 +935,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -877,7 +947,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -888,7 +959,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
         <GridLayout
@@ -909,7 +981,8 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -920,7 +993,8 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -931,7 +1005,8 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -942,7 +1017,8 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -953,7 +1029,8 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -964,7 +1041,8 @@
                 android:layout_row="1"
                 android:layout_column="2"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -975,7 +1053,8 @@
                 android:layout_row="2"
                 android:layout_column="0"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -986,7 +1065,8 @@
                 android:layout_column="1"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
 
             <Button
                 android:layout_width="30dp"
@@ -997,7 +1077,8 @@
                 android:layout_column="2"
                 android:layout_margin="3dp"
                 android:background="@color/grey_100"
-                android:elevation="25dp" />
+                android:elevation="25dp"
+                android:onClick="onTileClick" />
         </GridLayout>
 
     </GridLayout>
