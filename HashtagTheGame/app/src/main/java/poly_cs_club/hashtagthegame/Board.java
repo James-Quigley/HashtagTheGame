@@ -72,6 +72,45 @@ public class Board{
     public void setTileOwner(Player player, Location loc)
     {
         m_Fields[loc.x_Field][loc.y_Field].getTile(loc.x_Tile, loc.y_Tile).setOwner(player.getName());
+        if(threeInARow(player.getName(), loc) && m_Fields[loc.x_Field][loc.y_Field].getOwner().equals("Unknown"))
+        {
+            setFieldOwner(player, loc);
+        }
+    }
+    public boolean threeInARow(String name, Location loc)
+    {
+        String owner = name, acrossOwner = "", downOwner = "", diaOwner = "";
+        int across = 0;
+        int down = 0;
+        int dia = 0;
+
+        for(int x = 0; x < 3; x++)
+        {
+            across = 0;
+            down = 0;
+            for (int y = 0,d = 0; y < 3; y++, d++) {
+                acrossOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(x, y).getOwner();
+                downOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y, x).getOwner();
+                diaOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y,d).getOwner();
+                if (acrossOwner.equals(owner)) {
+                    across++;
+                }
+                if (downOwner.equals(owner)) {
+                    down++;
+                }
+                if(diaOwner.equals(owner))
+                {
+                    dia++;
+                }
+            }
+        }
+        if(across == 3 || down == 3) {
+            System.out.println(name +  " " + "three In a Row");
+            return true;
+        }else
+        {
+            return false;
+        }
     }
     public void setUpField()
     {

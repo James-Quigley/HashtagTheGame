@@ -89,7 +89,6 @@ public class Game extends Activity {
                             int resID = getResources().getIdentifier(id, "id", "poly_cs_club.hashtagthegame");
                             Button tile = (Button) findViewById(resID);
                             if (m_Board.getFieldInPlay().x_Field == i && m_Board.getFieldInPlay().y_Field == j) {
-
                                 tile.setEnabled(true);
                             }
                             else{
