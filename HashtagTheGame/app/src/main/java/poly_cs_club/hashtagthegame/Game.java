@@ -10,10 +10,10 @@ public class Game extends Activity {
     private Board m_Board;
     private Player m_PlayerOne;
     private Player m_PlayerTwo;
-    private boolean m_Turn; // true player one, false player two.
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         Intent intent = this.getIntent();
         String gameType = intent.getStringExtra("gameType");
@@ -30,7 +30,7 @@ public class Game extends Activity {
                 m_PlayerTwo = new Player("PlayerTwo", 2); //P2 is online human
         }
 
-        m_Turn = false;
+        //m_Turn = false;
         setContentView(R.layout.activity_game);
     }
 
@@ -39,7 +39,7 @@ public class Game extends Activity {
         if(!m_Board.IsTileFull(selectedTile))
         {
             m_Board.setTileOwner(player, selectedTile);
-            m_Turn = !m_Turn;
+            //m_Turn = !m_Turn;
             if(ifFieldIsTaken(selectedTile))
             {
                 m_Board.setFieldOwner(player, selectedTile);
@@ -68,7 +68,10 @@ public class Game extends Activity {
     {
         return m_Board.isGameWon(m_PlayerOne.getScore(), m_PlayerTwo.getScore());
     }
-
+    private Player getCurrentPlayer()
+    {
+        return new Player();
+    }
     public void onTileClick(View view) {
         String idString = view.getTag().toString();
         String[] locationValues = idString.split(",");
@@ -79,6 +82,9 @@ public class Game extends Activity {
 
         //Location of the clicked tile
         Location location = new Location(locationIntValues[0],locationIntValues[1],locationIntValues[2],locationIntValues[3]);
-
+        if(getCurrentPlayer().getType() == 1)
+        {
+            //takeTurn()
+        }
     }
 }

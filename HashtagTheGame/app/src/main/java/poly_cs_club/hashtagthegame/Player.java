@@ -8,6 +8,7 @@ public class Player
     private String m_Name;
     private int m_Type;//0 Human, 1 CPU, 2 Human-Internet
     private int m_Score;
+    private boolean m_MyTurn; // true player one, false player two.
     public Player()
     {
         m_Name = "Unknown";
@@ -43,5 +44,13 @@ public class Player
     public void setScore(int score)
     {
         m_Score = score;
+    }
+    public boolean isTurn()
+    {
+        return m_MyTurn;
+    }
+    public void setTurn(boolean turn)
+    {
+        m_MyTurn = turn;
     }
 }
