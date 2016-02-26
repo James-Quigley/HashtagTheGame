@@ -72,13 +72,10 @@ public class Game extends Activity {
     {
         return m_Board.isGameWon(m_PlayerOne.getScore(), m_PlayerTwo.getScore());
     }
-    private Player getCurrentPlayer()
-    {
-        if(m_PlayerOne.isTurn())
-        {
+    private Player getCurrentPlayer() {
+        if (m_PlayerOne.isTurn()) {
             return m_PlayerOne;
-        }else
-        {
+        } else {
             return m_PlayerTwo;
         }
     }
