@@ -158,4 +158,8 @@ public class Board{
     public Field getField(Location loc){
         return m_Fields[loc.x_Field][loc.y_Field];
     }
+
+    public int getM_WinnableFields(){
+        return m_WinnableFields;
+    }
 }

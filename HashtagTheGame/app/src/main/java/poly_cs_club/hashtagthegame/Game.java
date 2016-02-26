@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Game extends Activity {
@@ -78,6 +79,13 @@ public class Game extends Activity {
         {
             //send message that tile is taken...
         }
+        TextView player1Score = (TextView) findViewById(R.id.p1Score);
+        TextView player2Score = (TextView) findViewById(R.id.p2Score);
+        TextView fieldsLeft = (TextView) findViewById(R.id.fieldsLeft);
+
+        player1Score.setText(m_PlayerOne.getScore() + "");
+        player2Score.setText(m_PlayerTwo.getScore() + "");
+        fieldsLeft.setText(m_Board.getM_WinnableFields() + "");
     }
 
     private void updateAvailableTiles(){
