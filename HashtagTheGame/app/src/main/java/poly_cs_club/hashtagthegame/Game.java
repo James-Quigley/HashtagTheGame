@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class Game extends Activity {
 
@@ -43,6 +44,16 @@ public class Game extends Activity {
         if(!m_Board.IsTileFull(selectedTile))
         {
             m_Board.setTileOwner(player, selectedTile);
+            String id = "field" + selectedTile.x_Field + "" + selectedTile.y_Field + "button" + selectedTile.x_Tile + "" + selectedTile.y_Tile;
+            int resID = getResources().getIdentifier(id, "id", "poly_cs_club.hashtagthegame");
+            Button tile = (Button) findViewById(resID);
+            if (getCurrentPlayer().getName().equals("PlayerOne")){
+                tile.setBackgroundColor(getResources().getColor(R.color.blue_900));
+            }
+            else{
+                tile.setBackgroundColor(getResources().getColor(R.color.red_900));
+            }
+            updateAvailableTiles();
             switchTurns();
             if(ifFieldIsTaken(selectedTile))
             {
@@ -64,6 +75,11 @@ public class Game extends Activity {
             //send message that tile is taken...
         }
     }
+
+    private void updateAvailableTiles(){
+
+    }
+
     private boolean ifFieldIsTaken(Location loc)
     {
        return m_Board.isFieldFull(loc);
