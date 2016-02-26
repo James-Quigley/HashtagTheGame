@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Game extends Activity {
 
@@ -60,7 +61,10 @@ public class Game extends Activity {
                 //update Field
                 if(ifGameWon())
                 {
-                    //update Game Screen
+                    Toast.makeText(this, player.getName() + " won the game!",
+                            Toast.LENGTH_LONG).show();
+                    Intent myIntent = new Intent(this, MainMenu.class);
+                    this.startActivity(myIntent);
                 }
             }
 
