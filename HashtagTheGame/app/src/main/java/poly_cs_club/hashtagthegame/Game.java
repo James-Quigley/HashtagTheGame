@@ -49,6 +49,12 @@ public class Game extends Activity {
                     //update Game Screen
                 }
             }
+
+            Location nextField = new Location(selectedTile.x_Tile,selectedTile.y_Tile,-1,-1);
+            if (m_Board.isFieldFull(nextField)){
+                nextField = new Location(-1,-1,-1,-1);
+            }
+            m_Board.setFieldInPlay(nextField);
         }else
         {
             //send message that tile is taken...

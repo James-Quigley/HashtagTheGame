@@ -103,5 +103,8 @@ public class Board{
         return m_GameWon;
     }
 
+    public void setFieldInPlay (Location location){
+        fieldInPlay = location;
+    }
 
 }
