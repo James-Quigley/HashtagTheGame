@@ -39,6 +39,7 @@ public class Game extends Activity {
     public void takeTurn(Player player,Location selectedTile)
     {
         System.out.println(getCurrentPlayer().getName()+ "took a turn.");
+
         if(!m_Board.IsTileFull(selectedTile))
         {
             m_Board.setTileOwner(player, selectedTile);
@@ -105,7 +106,7 @@ public class Game extends Activity {
         Location location = new Location(locationIntValues[0],locationIntValues[1],locationIntValues[2],locationIntValues[3]);
         System.out.println("Tile clicked! Location: " + location.toString());
         //switch colors
-
+        if(m_Board.isFieldAvailable(location))
         takeTurn(getCurrentPlayer(), location);
     }
 }

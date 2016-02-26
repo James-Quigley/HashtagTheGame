@@ -106,5 +106,12 @@ public class Board{
     public void setFieldInPlay (Location location){
         fieldInPlay = location;
     }
-
+    private Location getFieldInPlay()
+    {
+        return fieldInPlay;
+    }
+    public boolean isFieldAvailable(Location loc)
+    {
+        return getFieldInPlay().equals(loc);
+    }
 }
