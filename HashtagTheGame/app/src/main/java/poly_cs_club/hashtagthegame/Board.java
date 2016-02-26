@@ -75,26 +75,29 @@ public class Board{
         if(m_Fields[loc.x_Field][loc.y_Field].getOwner().equals("Unknown") && threeInARow(player.getName(), loc))
         {
             setFieldOwner(player, loc);
+            System.out.println("Field " + loc.x_Field + ", " + loc.y_Field + " owner set to " + player.getName());
         }
     }
     public boolean threeInARow(String name, Location loc) {
-        String owner = name, acrossOwner = "", downOwner = "", diaOwner = "";
-        int across = 0;
-        int down = 0;
-        int dia = 0;
-
-        for (int y = 0, d = 0; y < 3; y++, d++) {
-            acrossOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(0, y).getOwner();
-            downOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y, 1).getOwner();
-            //diaOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y,d).getOwner();
-            if (m_Fields[loc.x_Field][loc.y_Field].getTile(y, 0).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(y, 1).getOwner()) && m_Fields[loc.x_Field][loc.y_Field].getTile(y, 1).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(y, 2).getOwner())) {
-                System.out.println("FOUND THREE ACROSS");
-                return true;
-            } else if (m_Fields[loc.x_Field][loc.y_Field].getTile(0, y).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(1, y).getOwner()) && m_Fields[loc.x_Field][loc.y_Field].getTile(1, y).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(2, y).getOwner())) {
-                System.out.println("FOUND THREE DOWN");
+        for(int i = 0; i < 3; i++){
+            if (m_Fields[loc.x_Field][loc.y_Field].getTile(i,0).getOwner().equals(name) && m_Fields[loc.x_Field][loc.y_Field].getTile(i,0).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(i,1).getOwner()) && m_Fields[loc.x_Field][loc.y_Field].getTile(i,0).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(i,2).getOwner())){
+                System.out.println("3 Across");
                 return true;
             }
-
+        }
+        for (int i = 0; i < 3; i++){
+            if(m_Fields[loc.x_Field][loc.y_Field].getTile(0,i).getOwner().equals(name) && m_Fields[loc.x_Field][loc.y_Field].getTile(0,i).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(1,i).getOwner()) && m_Fields[loc.x_Field][loc.y_Field].getTile(0,i).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(2,i).getOwner())){
+                System.out.println("3 Down");
+                return true;
+            }
+        }
+        if (m_Fields[loc.x_Field][loc.y_Field].getTile(0,0).getOwner().equals(name) && m_Fields[loc.x_Field][loc.y_Field].getTile(0,0).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(1,1).getOwner()) && m_Fields[loc.x_Field][loc.y_Field].getTile(0,0).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(2,2).getOwner())){
+            System.out.println("3 diagonal");
+            return true;
+        }
+        if (m_Fields[loc.x_Field][loc.y_Field].getTile(0,2).getOwner().equals(name) && m_Fields[loc.x_Field][loc.y_Field].getTile(0,2).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(1,1).getOwner()) && m_Fields[loc.x_Field][loc.y_Field].getTile(0,2).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(2,0).getOwner())){
+            System.out.println("3 diagonal");
+            return true;
         }
         return false;
     }
@@ -144,5 +147,9 @@ public class Board{
         {
             return getFieldInPlay().fieldEquals(loc);
         }
+    }
+
+    public Field getField(Location loc){
+        return m_Fields[loc.x_Field][loc.y_Field];
     }
 }

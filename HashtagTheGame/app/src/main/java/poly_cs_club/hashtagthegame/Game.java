@@ -122,7 +122,7 @@ public class Game extends Activity {
 
     private boolean ifFieldIsTaken(Location loc)
     {
-       return m_Board.isFieldFull(loc);
+       return !m_Board.getField(loc).getOwner().equals("Unknown");
     }
     private boolean ifGameWon()
     {
