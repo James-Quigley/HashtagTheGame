@@ -53,7 +53,6 @@ public class Game extends Activity {
             else{
                 tile.setBackgroundColor(getResources().getColor(R.color.red_900));
             }
-            updateAvailableTiles();
             switchTurns();
             if(ifFieldIsTaken(selectedTile))
             {
@@ -70,6 +69,7 @@ public class Game extends Activity {
                 nextField = new Location(-1,-1,-1,-1);
             }
             m_Board.setFieldInPlay(nextField);
+            updateAvailableTiles();
         }else
         {
             //send message that tile is taken...
@@ -77,7 +77,44 @@ public class Game extends Activity {
     }
 
     private void updateAvailableTiles(){
+        if (m_Board.getFieldInPlay().x_Field == -1){
+            enableAllTiles();
+        }
+        else{
+            for (int i = 0; i < 3; i++){
+                for (int j = 0; j < 3; j++){
+                    for (int k = 0; k < 3; k++){
+                        for (int l = 0; l < 3; l++){
+                            String id = "field" + i + "" + j + "button" + k + "" + l;
+                            int resID = getResources().getIdentifier(id, "id", "poly_cs_club.hashtagthegame");
+                            Button tile = (Button) findViewById(resID);
+                            if (m_Board.getFieldInPlay().x_Field == i && m_Board.getFieldInPlay().y_Field == j) {
 
+                                tile.setEnabled(true);
+                            }
+                            else{
+                                tile.setEnabled(false);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void enableAllTiles(){
+        for (int i = 0; i < 2; i++){
+            for (int j = 0; j < 2; j++){
+                for (int k = 0; k < 2; k++){
+                    for (int l = 0; l < 2; l++){
+                        String id = "field" + i + "" + j + "button" + k + "" + l;
+                        int resID = getResources().getIdentifier(id, "id", "poly_cs_club.hashtagthegame");
+                        Button tile = (Button) findViewById(resID);
+                        tile.setEnabled(true);
+                    }
+                }
+            }
+        }
     }
 
     private boolean ifFieldIsTaken(Location loc)

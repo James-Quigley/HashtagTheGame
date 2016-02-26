@@ -106,7 +106,7 @@ public class Board{
     public void setFieldInPlay (Location location){
         fieldInPlay = location;
     }
-    private Location getFieldInPlay()
+    public Location getFieldInPlay()
     {
         return fieldInPlay;
     }
