@@ -61,6 +61,7 @@ public class Board{
     public void setFieldOwner(Player player, Location loc)
     {
         m_Fields[loc.x_Field][loc.y_Field].setOwner(player.getName());
+        player.setScore(player.getScore()+1);
         m_WinnableFields -= 1;
     }
 
@@ -78,7 +79,8 @@ public class Board{
             System.out.println("Field " + loc.x_Field + ", " + loc.y_Field + " owner set to " + player.getName());
         }
     }
-    public boolean threeInARow(String name, Location loc) {
+    public boolean threeInARow(String name, Location loc)
+    {
         for(int i = 0; i < 3; i++){
             if (m_Fields[loc.x_Field][loc.y_Field].getTile(i,0).getOwner().equals(name) && m_Fields[loc.x_Field][loc.y_Field].getTile(i,0).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(i,1).getOwner()) && m_Fields[loc.x_Field][loc.y_Field].getTile(i,0).getOwner().equals(m_Fields[loc.x_Field][loc.y_Field].getTile(i,2).getOwner())){
                 System.out.println("3 Across");
@@ -148,7 +150,6 @@ public class Board{
             return getFieldInPlay().fieldEquals(loc);
         }
     }
-
     public Field getField(Location loc){
         return m_Fields[loc.x_Field][loc.y_Field];
     }
