@@ -100,6 +100,7 @@ public class Game extends Activity {
 
         //Location of the clicked tile
         Location location = new Location(locationIntValues[0],locationIntValues[1],locationIntValues[2],locationIntValues[3]);
+        System.out.println("Tile clicked! Location: " + location.toString());
         if(getCurrentPlayer().getType() == 1)
         {
             //takeTurn()
