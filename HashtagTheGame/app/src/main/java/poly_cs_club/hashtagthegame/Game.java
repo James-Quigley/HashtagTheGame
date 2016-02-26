@@ -38,6 +38,7 @@ public class Game extends Activity {
 
     public void takeTurn(Player player,Location selectedTile)
     {
+        System.out.println(getCurrentPlayer().getName()+ "took a turn.");
         if(!m_Board.IsTileFull(selectedTile))
         {
             m_Board.setTileOwner(player, selectedTile);
