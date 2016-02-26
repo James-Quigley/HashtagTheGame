@@ -92,8 +92,8 @@ public class Board{
             for (int y = 0,d = 0; y < 3; y++, d++)
             {
                 acrossOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(x, y).getOwner();
-                downOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y, x).getOwner();
-                diaOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y,d).getOwner();
+                //downOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y, x).getOwner();
+                //diaOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y,d).getOwner();
                 if (acrossOwner.equals(owner))
                 {
                     System.out.println("Across");
@@ -101,13 +101,13 @@ public class Board{
                 }
                 if (downOwner.equals(owner))
                 {
-                    System.out.println("DOWN");
-                    down++;
+                    //System.out.println("DOWN");
+                    //down++;
                 }
                 if(diaOwner.equals(owner))
                 {
-                    System.out.println("DIA");
-                    dia++;
+                   // System.out.println("DIA");
+                    //dia++;
                 }
             }
         }
