@@ -14,6 +14,7 @@ public class Player
         m_Name = "Unknown";
         m_Type = 0;
         m_Score = 0;
+        m_MyTurn = false;
     }
     public Player(String name, int type)
     {

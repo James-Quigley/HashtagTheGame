@@ -20,6 +20,8 @@ public class Game extends Activity {
 
         m_Board = new Board();
         m_PlayerOne = new Player("PlayerOne", 0); //Always Human
+        m_PlayerOne.setTurn(true);
+        m_PlayerTwo.setTurn(false);
 
         switch(gameType){
             case("single"):
@@ -101,9 +103,6 @@ public class Game extends Activity {
         //Location of the clicked tile
         Location location = new Location(locationIntValues[0],locationIntValues[1],locationIntValues[2],locationIntValues[3]);
         System.out.println("Tile clicked! Location: " + location.toString());
-        if(getCurrentPlayer().getType() == 1)
-        {
-            //takeTurn()
-        }
+        takeTurn(getCurrentPlayer(), location);
     }
 }
