@@ -107,6 +107,10 @@ public class Game extends Activity {
         System.out.println("Tile clicked! Location: " + location.toString());
         //switch colors
         if(m_Board.isFieldAvailable(location))
-        takeTurn(getCurrentPlayer(), location);
+        {
+            System.out.println("Field is Available");
+            takeTurn(getCurrentPlayer(), location);
+        }
+
     }
 }

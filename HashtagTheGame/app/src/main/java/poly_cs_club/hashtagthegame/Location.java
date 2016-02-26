@@ -18,9 +18,9 @@ public class Location {
         return this.x_Field + ", " + this.y_Field + ", " + this.x_Tile + ", " + this.y_Tile;
     }
 
-    public boolean equals(Location loc)
+    public boolean fieldEquals(Location loc)
     {
-        return (loc.x_Field == this.x_Field) && (loc.y_Field == this.y_Field) && (loc.x_Tile == this.x_Tile) && (loc.y_Tile == this.y_Tile);
+        return (loc.x_Field == this.x_Field) && (loc.y_Field == this.y_Field);
     }
 
 }

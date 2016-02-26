@@ -112,6 +112,12 @@ public class Board{
     }
     public boolean isFieldAvailable(Location loc)
     {
-        return getFieldInPlay().equals(loc);
+        if(getFieldInPlay().x_Field == -1 && getFieldInPlay().y_Field == -1)
+        {
+            return true;
+        }else
+        {
+            return getFieldInPlay().fieldEquals(loc);
+        }
     }
 }
