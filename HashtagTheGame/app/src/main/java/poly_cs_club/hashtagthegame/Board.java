@@ -119,11 +119,20 @@ public class Board{
     }
     public boolean isFieldFull(Location loc)
     {
-        for(int i = 0; i < 3; i++) {
-            if (m_Fields[loc.x_Field][loc.y_Field].getTile(loc.x_Tile, loc.y_Tile).getOwner().equals("Unknown")) {
-                return false;
+        if(loc.x_Field != -1)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 3; j++)
+                    if (m_Fields[loc.x_Field][loc.y_Field].getTile(i,j).getOwner().equals("Unknown")) {
+                        return false;
+                    }
             }
+        }else
+        {
+            return false;
         }
+
         return true;
     }
 
