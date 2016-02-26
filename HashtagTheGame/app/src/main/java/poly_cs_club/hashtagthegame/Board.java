@@ -119,7 +119,12 @@ public class Board{
     }
     public boolean isFieldFull(Location loc)
     {
-        return m_Fields[loc.x_Field][loc.y_Field].isFull();
+        for(int i = 0; i < 3; i++) {
+            if (m_Fields[loc.x_Field][loc.y_Field].getTile(loc.x_Tile, loc.y_Tile).getOwner().equals("Unknown")) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean isGameWon(int p1Score, int p2Score)
