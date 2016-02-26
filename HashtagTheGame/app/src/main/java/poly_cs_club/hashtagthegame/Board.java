@@ -72,7 +72,7 @@ public class Board{
     public void setTileOwner(Player player, Location loc)
     {
         m_Fields[loc.x_Field][loc.y_Field].getTile(loc.x_Tile, loc.y_Tile).setOwner(player.getName());
-        if(threeInARow(player.getName(), loc) && m_Fields[loc.x_Field][loc.y_Field].getOwner().equals("Unknown"))
+        if(m_Fields[loc.x_Field][loc.y_Field].getOwner().equals("Unknown") && threeInARow(player.getName(), loc))
         {
             setFieldOwner(player, loc);
         }
@@ -88,18 +88,25 @@ public class Board{
         {
             across = 0;
             down = 0;
-            for (int y = 0,d = 0; y < 3; y++, d++) {
+
+            for (int y = 0,d = 0; y < 3; y++, d++)
+            {
                 acrossOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(x, y).getOwner();
                 downOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y, x).getOwner();
                 diaOwner = m_Fields[loc.x_Field][loc.y_Field].getTile(y,d).getOwner();
-                if (acrossOwner.equals(owner)) {
+                if (acrossOwner.equals(owner))
+                {
+                    System.out.println("Across");
                     across++;
                 }
-                if (downOwner.equals(owner)) {
+                if (downOwner.equals(owner))
+                {
+                    System.out.println("DOWN");
                     down++;
                 }
                 if(diaOwner.equals(owner))
                 {
+                    System.out.println("DIA");
                     dia++;
                 }
             }
