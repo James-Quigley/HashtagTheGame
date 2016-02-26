@@ -21,7 +21,6 @@ public class Game extends Activity {
         m_Board = new Board();
         m_PlayerOne = new Player("PlayerOne", 0); //Always Human
         m_PlayerOne.setTurn(true);
-        m_PlayerTwo.setTurn(false);
 
         switch(gameType){
             case("single"):
@@ -31,6 +30,7 @@ public class Game extends Activity {
             case("online"):
                 m_PlayerTwo = new Player("PlayerTwo", 2); //P2 is online human
         }
+        m_PlayerTwo.setTurn(false);
 
         //m_Turn = false;
         setContentView(R.layout.activity_game);
@@ -103,6 +103,8 @@ public class Game extends Activity {
         //Location of the clicked tile
         Location location = new Location(locationIntValues[0],locationIntValues[1],locationIntValues[2],locationIntValues[3]);
         System.out.println("Tile clicked! Location: " + location.toString());
+        //switch colors
+
         takeTurn(getCurrentPlayer(), location);
     }
 }
