@@ -39,7 +39,7 @@ public class Game extends Activity {
         if(!m_Board.IsTileFull(selectedTile))
         {
             m_Board.setTileOwner(player, selectedTile);
-            //m_Turn = !m_Turn;
+            switchTurns();
             if(ifFieldIsTaken(selectedTile))
             {
                 m_Board.setFieldOwner(player, selectedTile);
@@ -70,7 +70,25 @@ public class Game extends Activity {
     }
     private Player getCurrentPlayer()
     {
-        return new Player();
+        if(m_PlayerOne.isTurn())
+        {
+            return m_PlayerOne;
+        }else
+        {
+            return m_PlayerTwo;
+        }
+    }
+    private void switchTurns()
+    {
+        if(getCurrentPlayer().getName().equals("PlayerOne"))
+        {
+            m_PlayerOne.setTurn(false);
+            m_PlayerTwo.setTurn(true);
+        }else
+        {
+            m_PlayerTwo.setTurn(false);
+            m_PlayerOne.setTurn(true);
+        }
     }
     public void onTileClick(View view) {
         String idString = view.getTag().toString();
