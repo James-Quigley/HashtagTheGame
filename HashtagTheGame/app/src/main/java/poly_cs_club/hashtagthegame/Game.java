@@ -58,7 +58,6 @@ public class Game extends Activity {
             switchTurns();
             if(ifFieldIsTaken(selectedTile))
             {
-                m_Board.setFieldOwner(player, selectedTile);
                 //update Field
                 if(ifGameWon())
                 {
