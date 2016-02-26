@@ -13,4 +13,8 @@ public class Location {
        x_Tile = x_T;
        y_Tile = y_T;
    }
+
+    public String toString(){
+        return this.x_Field + ", " + this.y_Field + ", " + this.x_Tile + ", " + this.y_Tile;
+    }
 }
