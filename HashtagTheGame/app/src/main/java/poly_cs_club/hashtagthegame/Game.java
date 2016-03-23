@@ -149,14 +149,20 @@ public class Game extends Activity {
     }
     private void switchTurns()
     {
+        TextView p1Label = (TextView) findViewById(R.id.p1ScoreLabel);
+        TextView p2Label = (TextView) findViewById(R.id.p2ScoreLabel);
         if(getCurrentPlayer().getName().equals("PlayerOne"))
         {
             m_PlayerOne.setTurn(false);
             m_PlayerTwo.setTurn(true);
+            p1Label.setBackgroundTintList(null);
+            p2Label.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_100)));
         }else
         {
             m_PlayerTwo.setTurn(false);
             m_PlayerOne.setTurn(true);
+            p1Label.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_100)));
+            p2Label.setBackgroundTintList(null);
         }
     }
     public void onTileClick(View view) {
