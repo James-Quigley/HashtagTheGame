@@ -156,13 +156,17 @@ public class Game extends Activity {
             m_PlayerOne.setTurn(false);
             m_PlayerTwo.setTurn(true);
             p1Label.setBackgroundTintList(null);
+            p1Label.setElevation(0);
             p2Label.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_100)));
+            p2Label.setElevation(25);
         }else
         {
             m_PlayerTwo.setTurn(false);
             m_PlayerOne.setTurn(true);
             p1Label.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_100)));
+            p1Label.setElevation(25);
             p2Label.setBackgroundTintList(null);
+            p2Label.setElevation(0);
         }
     }
     public void onTileClick(View view) {
