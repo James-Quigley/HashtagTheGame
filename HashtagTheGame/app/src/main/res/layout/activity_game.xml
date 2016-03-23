@@ -39,7 +39,9 @@
                     android:onClick="onTileClick"
                     android:layout_margin="1dp"
                     android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -51,7 +53,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -63,7 +67,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
 
@@ -79,7 +85,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -91,7 +99,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -103,7 +113,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -118,7 +130,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -130,7 +144,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -142,7 +158,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
             </TableLayout>
@@ -170,7 +188,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -182,7 +202,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -194,7 +216,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -209,7 +233,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -221,7 +247,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -233,7 +261,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -248,7 +278,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -260,7 +292,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -272,7 +306,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
             </TableLayout>
@@ -300,7 +336,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -312,7 +350,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -324,7 +364,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -339,7 +381,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -351,7 +395,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -363,7 +409,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -378,7 +426,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -390,7 +440,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -402,7 +454,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
             </TableLayout>
@@ -438,7 +492,9 @@
                         android:onClick="onTileClick"
                     android:layout_margin="1dp"
                     android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -450,7 +506,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -462,7 +520,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
                 <TableRow android:layout_width="fill_parent"
                     android:layout_height="fill_parent">
@@ -476,7 +536,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -488,7 +550,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -500,7 +564,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -515,7 +581,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -527,7 +595,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -539,7 +609,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
 
@@ -568,7 +640,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -580,7 +654,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -592,7 +668,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -607,7 +685,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -619,7 +699,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -631,7 +713,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -646,7 +730,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -658,7 +744,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -670,7 +758,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
 
@@ -699,7 +789,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -711,7 +803,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -723,7 +817,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -738,7 +834,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -750,7 +848,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -762,7 +862,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -777,7 +879,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -789,7 +893,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -801,7 +907,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="5dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
             </TableLayout>
@@ -835,7 +943,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -847,7 +957,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -859,7 +971,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -874,7 +988,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -886,7 +1002,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -898,7 +1016,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -913,7 +1033,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -925,7 +1047,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -937,7 +1061,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
 
@@ -965,7 +1091,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -977,7 +1105,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -989,7 +1119,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -1004,7 +1136,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1016,7 +1150,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1028,7 +1164,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -1043,7 +1181,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1055,7 +1195,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1067,7 +1209,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
             </TableLayout>
@@ -1094,7 +1238,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1106,7 +1252,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1118,7 +1266,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -1133,7 +1283,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1145,7 +1297,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1157,7 +1311,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
                 <TableRow android:layout_width="fill_parent"
@@ -1172,7 +1328,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1184,7 +1342,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
 
                     <Button
                         android:layout_width="fill_parent"
@@ -1196,7 +1356,9 @@
                         android:onClick="onTileClick"
                         android:layout_margin="1dp"
                         android:padding="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green_100"
+                        android:backgroundTintMode="multiply" />
                 </TableRow>
 
             </TableLayout>

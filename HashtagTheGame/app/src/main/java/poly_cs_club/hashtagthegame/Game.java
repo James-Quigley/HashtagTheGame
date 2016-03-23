@@ -2,6 +2,7 @@ package poly_cs_club.hashtagthegame;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -101,9 +102,13 @@ public class Game extends Activity {
                             Button tile = (Button) findViewById(resID);
                             if (m_Board.getFieldInPlay().x_Field == i && m_Board.getFieldInPlay().y_Field == j) {
                                 tile.setEnabled(true);
+                                tile.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_100)));
+                                tile.setElevation(50);
                             }
                             else{
                                 tile.setEnabled(false);
+                                tile.setBackgroundTintList(null);
+                                tile.setElevation(0);
                             }
                         }
                     }
@@ -171,6 +176,10 @@ public class Game extends Activity {
             System.out.println("Field is Available");
             takeTurn(getCurrentPlayer(), location);
         }
+
+    }
+
+    public void recolor(){
 
     }
 }
